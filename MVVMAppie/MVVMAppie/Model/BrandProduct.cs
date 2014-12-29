@@ -25,7 +25,7 @@ namespace MVVMAppie.Model
         public virtual Product Product
         {
             get;
-            set
+            set;
         }
 
         public virtual Brand Brand
