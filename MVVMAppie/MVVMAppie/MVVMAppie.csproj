@@ -79,6 +79,10 @@
       <DependentUpon>DiscountWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\BrandProduct.cs" />
+    <Compile Include="Model\Database.cs" />
+    <Compile Include="Model\MyEntityContext.cs" />
+    <Compile Include="Model\Repository\IRepository.cs" />
+    <Compile Include="Model\Repository\Repository.cs" />
     <Compile Include="RecipeWindow.xaml.cs">
       <DependentUpon>RecipeWindow.xaml</DependentUpon>
     </Compile>
@@ -146,9 +150,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\Repository\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
