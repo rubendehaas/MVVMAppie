@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MVVMAppie.Model
 {
-    class Recipe
+    public class Recipe
     {
         [Key]
         public int RecipeId

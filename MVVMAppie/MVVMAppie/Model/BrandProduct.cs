@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MVVMAppie.Model
 {
-    class BrandProduct
+    public class BrandProduct
     {
         [Key]
         public int BrandProductId

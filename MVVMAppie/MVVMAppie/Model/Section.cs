@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MVVMAppie.Model
 {
-    class Section
+    public class Section
     {
         [Key]
         public int SectionId
