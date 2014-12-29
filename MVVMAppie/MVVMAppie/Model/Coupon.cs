@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MVVMAppie.Model
 {
-    class Coupon
+    public class Coupon
     { 
         [Key]
         public int CouponId
