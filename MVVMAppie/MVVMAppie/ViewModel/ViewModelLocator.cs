@@ -15,6 +15,7 @@
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
+using MVVMAppie.Model;
 
 namespace MVVMAppie.ViewModel
 {
@@ -41,6 +42,7 @@ namespace MVVMAppie.ViewModel
             ////    // Create run time view services and models
             ////    SimpleIoc.Default.Register<IDataService, DataService>();
             ////}
+            SimpleIoc.Default.Register<Database>();
 
             SimpleIoc.Default.Register<MainViewModel>();
         }
