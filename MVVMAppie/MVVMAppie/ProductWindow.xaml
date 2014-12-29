@@ -1,0 +1,16 @@
+﻿<Window x:Class="MVVMAppie.ProductWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Window1" Height="522.973" Width="1001.148">
+    <Grid>
+        <Label Content="Afdelingen" HorizontalAlignment="Left" Margin="10,74,0,0" VerticalAlignment="Top"/>
+        <Label Content="Producten" HorizontalAlignment="Left" Margin="349,74,0,0" VerticalAlignment="Top"/>
+        <Label Content="Merken" HorizontalAlignment="Left" Margin="683,74,0,0" VerticalAlignment="Top"/>
+        <Label Content="Stel hier uw boodschappenlijst samen" HorizontalAlignment="Left" Margin="398,31,0,0" VerticalAlignment="Top"/>
+        <DataGrid HorizontalAlignment="Left" Margin="683,99,0,0" VerticalAlignment="Top" Height="316" Width="301"/>
+        <DataGrid HorizontalAlignment="Left" Margin="10,99,0,0" VerticalAlignment="Top" Height="316" Width="301"/>
+        <DataGrid HorizontalAlignment="Left" Margin="349,99,0,0" VerticalAlignment="Top" Height="316" Width="301"/>
+        <Button Content="Voeg product toe" HorizontalAlignment="Left" Margin="874,446,0,0" VerticalAlignment="Top" Width="110" Height="38"/>
+
+    </Grid>
+</Window>

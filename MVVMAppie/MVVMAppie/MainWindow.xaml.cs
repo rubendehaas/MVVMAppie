@@ -24,5 +24,23 @@ namespace MVVMAppie
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            DiscountWindow discountWindow = new DiscountWindow();
+            discountWindow.Show();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            RecipeWindow recipeWindow = new RecipeWindow();
+            recipeWindow.Show();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            ProductWindow productWindow = new ProductWindow();
+            productWindow.Show();
+        }
     }
 }
