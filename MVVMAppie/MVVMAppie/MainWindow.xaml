@@ -4,7 +4,7 @@
         Title="MainWindow" Height="561.529" Width="704.302"
         DataContext="{Binding Main, Source={StaticResource Locator}}" >
     <Grid RenderTransformOrigin="0.506,0.517">
-        <DataGrid HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" Height="308" Width="678"/>
+        <DataGrid ItemsSource="{Binding ShoppingList}" SelectedItem="{Binding SelectedBrandProduct}" ColumnWidth="*" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" Height="308" Width="678"/>
         <Label Content="Boodschappenlijst" HorizontalAlignment="Left" Margin="293,34,0,0" VerticalAlignment="Top"/>
         <Button Content="Producten" HorizontalAlignment="Left" Margin="578,484,0,0" VerticalAlignment="Top" Width="110" Height="38" Click="Button_Click_2"/>
         <Button Content="Recepten" HorizontalAlignment="Left" Margin="578,441,0,0" VerticalAlignment="Top" Width="110" Height="38" Click="Button_Click_1"/>
