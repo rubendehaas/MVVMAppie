@@ -1,7 +1,8 @@
 ﻿<Window x:Class="MVVMAppie.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="561.529" Width="704.302">
+        Title="MainWindow" Height="561.529" Width="704.302"
+        DataContext="{Binding Main, Source={StaticResource Locator}}" >
     <Grid RenderTransformOrigin="0.506,0.517">
         <DataGrid HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" Height="308" Width="678"/>
         <Label Content="Boodschappenlijst" HorizontalAlignment="Left" Margin="293,34,0,0" VerticalAlignment="Top"/>

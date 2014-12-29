@@ -54,6 +54,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.0.2.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
@@ -78,10 +79,28 @@
     <Compile Include="DiscountWindow.xaml.cs">
       <DependentUpon>DiscountWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201412291450000_test.cs" />
+    <Compile Include="Migrations\201412291450000_test.Designer.cs">
+      <DependentUpon>201412291450000_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412291456334_test1.cs" />
+    <Compile Include="Migrations\201412291456334_test1.Designer.cs">
+      <DependentUpon>201412291456334_test1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412291457321_test2.cs" />
+    <Compile Include="Migrations\201412291457321_test2.Designer.cs">
+      <DependentUpon>201412291457321_test2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\BrandProduct.cs" />
+    <Compile Include="Model\Database.cs" />
+    <Compile Include="Model\MyEntityContext.cs" />
+    <Compile Include="Model\Repository\IRepository.cs" />
+    <Compile Include="Model\Repository\Repository.cs" />
     <Compile Include="RecipeWindow.xaml.cs">
       <DependentUpon>RecipeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\BrandProductVM.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="ProductWindow.xaml.cs">
@@ -132,6 +151,15 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\201412291450000_test.resx">
+      <DependentUpon>201412291450000_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412291456334_test1.resx">
+      <DependentUpon>201412291456334_test1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412291457321_test2.resx">
+      <DependentUpon>201412291457321_test2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -146,9 +174,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\Repository\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
