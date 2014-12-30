@@ -1,0 +1,11 @@
+﻿<Window x:Class="MVVMAppie.ProductAddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ProductAddWindow" Height="302.759" Width="389.298">
+    <Grid>
+        <Label Content="Creeër een nieuwe afdeling" HorizontalAlignment="Left" Margin="114,26,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="SectionNameTB" HorizontalAlignment="Left" Height="23" Margin="114,106,0,0" TextWrapping="Wrap" Text="Afdelingsnaam" VerticalAlignment="Top" Width="149"/>
+        <Button x:Name="AddSectionBtn" Content="Creeër afdeling" HorizontalAlignment="Left" Margin="131,191,0,0" VerticalAlignment="Top" Width="110" Height="38" Click="AddSectionBtn_Click"/>
+
+    </Grid>
+</Window>
