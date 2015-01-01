@@ -13,7 +13,7 @@ namespace MVVMAppie.ViewModel
     public class RecipePickerViewModel : ViewModelBase
     {
         private Database database;
-        private ShoppingListViewModel _shoppingList;
+        private ShoppingListVM _shoppingList;
         public ObservableCollection<RecipeVM> Recipes
         {
             get;
@@ -63,11 +63,11 @@ namespace MVVMAppie.ViewModel
                     {
                         Amount = 1,
                         BrandProduct = brandProduct
-                    }));
+                    }, _shoppingList));
                 }
                 else
                 {
-                    _shoppingList.IncreaseAmmount(brandProduct.Product.Name, brandProduct.Brand.Name);
+                    _shoppingList.IncreaseAmmount(brandProduct.Product, brandProduct.Brand);
                 }
             }
 
@@ -75,7 +75,7 @@ namespace MVVMAppie.ViewModel
         }
 
 
-        public RecipePickerViewModel(Database datab, ShoppingListViewModel shoppingList)
+        public RecipePickerViewModel(Database datab, ShoppingListVM shoppingList)
         {
             this.database = datab;
             this._shoppingList = shoppingList;

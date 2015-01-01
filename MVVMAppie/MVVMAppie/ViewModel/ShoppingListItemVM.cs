@@ -10,6 +10,7 @@ namespace MVVMAppie.ViewModel
 {
     public class ShoppingListItemVM :   ViewModelBase
     {
+        private ShoppingListVM parent;
         private ShoppingListItem _shoppingListItem;
 
         public String Name
@@ -45,12 +46,18 @@ namespace MVVMAppie.ViewModel
             set
             {
                 _shoppingListItem.Amount = value;
-                RaisePropertyChanged("Amount");
+                parent.AmountChanged();
             }
         }
 
-        public ShoppingListItemVM(ShoppingListItem item)
+        public ShoppingListItem GetShoppingListItem()
         {
+            return this._shoppingListItem;
+        }
+
+        public ShoppingListItemVM(ShoppingListItem item, ShoppingListVM parent)
+        {
+            this.parent = parent;
             _shoppingListItem = item;
         }
     }

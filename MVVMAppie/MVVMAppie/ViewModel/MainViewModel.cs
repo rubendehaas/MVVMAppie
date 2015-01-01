@@ -30,10 +30,10 @@ namespace MVVMAppie.ViewModel
         /// </summary>
         /// 
         private Database database;
-        private ShoppingListViewModel _shoppingList;
+        private ShoppingListVM _shoppingList;
 
         private ShoppingListItemVM _selectedShoppingListItem;
-        public ShoppingListViewModel ShoppingList
+        public ShoppingListVM ShoppingList
         {
             get
             {
@@ -62,20 +62,14 @@ namespace MVVMAppie.ViewModel
                 {
                     removeProductCommand = new RelayCommand(() =>
                     {
-                        this.RemoveProduct();
+                        ShoppingList.RemoveProduct(SelectedShoppingListItem);
                     });
                 }
                 return removeProductCommand;
             }
         }
 
-        private void RemoveProduct()
-        {
-            _shoppingList.ShoppingList.Remove(SelectedShoppingListItem);
-            RaisePropertyChanged("ShoppingList");
-        }
-
-        public MainViewModel(Database datab, ShoppingListViewModel shoppingList)
+        public MainViewModel(Database datab, ShoppingListVM shoppingList)
         {
             this.database = datab;
             this._shoppingList = shoppingList;

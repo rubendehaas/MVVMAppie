@@ -146,7 +146,7 @@
     <Compile Include="ViewModel\ProductPickerViewModel.cs" />
     <Compile Include="ViewModel\ProductVM.cs" />
     <Compile Include="ViewModel\SectionVM.cs" />
-    <Compile Include="ViewModel\ShoppingListViewModel.cs" />
+    <Compile Include="ViewModel\ShoppingListVM.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="ProductWindow.xaml.cs">
       <DependentUpon>ProductWindow.xaml</DependentUpon>

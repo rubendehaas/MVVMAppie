@@ -43,7 +43,7 @@ namespace MVVMAppie.ViewModel
             //    SimpleIoc.Default.Register<IDataService, DataService>();
             //}
             SimpleIoc.Default.Register<Database>();
-            SimpleIoc.Default.Register<ShoppingListViewModel>();
+            SimpleIoc.Default.Register<ShoppingListVM>();
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<ProductPickerViewModel>();
             SimpleIoc.Default.Register<RecipePickerViewModel>();

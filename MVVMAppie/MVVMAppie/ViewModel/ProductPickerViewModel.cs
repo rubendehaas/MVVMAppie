@@ -13,7 +13,7 @@ namespace MVVMAppie.ViewModel
     {
 
         private Database database;
-        private ShoppingListViewModel _shoppingList;
+        private ShoppingListVM _shoppingList;
         public ObservableCollection<SectionVM> Sections
         {
             get;
@@ -103,11 +103,11 @@ namespace MVVMAppie.ViewModel
                 {
                     Amount = 1,
                     BrandProduct = database.BrandProductRepository.GetBySelection(this.SelectedBrand.GetBrand(), this.SelectedProduct.GetProduct())
-                }));
+                }, _shoppingList));
             }
             else
             {
-                _shoppingList.IncreaseAmmount(this.SelectedProduct.Name, this.SelectedBrand.Name);
+                _shoppingList.IncreaseAmmount(this.SelectedProduct.GetProduct(), this.SelectedBrand.GetBrand());
             }
         }
 
@@ -138,7 +138,7 @@ namespace MVVMAppie.ViewModel
             
         }
 
-        public ProductPickerViewModel(Database datab, ShoppingListViewModel shoppingList)
+        public ProductPickerViewModel(Database datab, ShoppingListVM shoppingList)
         {
             this.database = datab;
             this._shoppingList = shoppingList;
