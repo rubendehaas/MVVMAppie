@@ -1,7 +1,12 @@
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
+using GalaSoft.MvvmLight.Threading;
 using MVVMAppie.Model;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 
 namespace MVVMAppie.ViewModel
@@ -25,39 +30,57 @@ namespace MVVMAppie.ViewModel
         /// </summary>
         /// 
         private Database database;
-        public ObservableCollection<BrandProductVM> ShoppingList
-        {
-            get;
-            set;
-        }
+        private ShoppingListViewModel _shoppingList;
 
-        private BrandProductVM _selectedBrandProduct;
+        private ShoppingListItemVM _selectedShoppingListItem;
 
-        public BrandProductVM SelectedBrandProduct
+
+        public ShoppingListViewModel ShoppingList
         {
             get
             {
-                return _selectedBrandProduct;
+                return _shoppingList;
+            }
+        }
+        public ShoppingListItemVM SelectedShoppingListItem
+        {
+            get
+            {
+                return _selectedShoppingListItem;
             }
 
             set{
-                _selectedBrandProduct = value;
-                RaisePropertyChanged("SelectedBrandProducts");
+                _selectedShoppingListItem = value;
+                RaisePropertyChanged("SelectedShoppingListItem");
             }
         }
 
-        public MainViewModel(Database datab)
+        private RelayCommand removeProductCommand;
+        public RelayCommand RemoveProductCommand
+        {
+            get
+            {
+                if (removeProductCommand == null)
+                {
+                    removeProductCommand = new RelayCommand(() =>
+                    {
+                        this.RemoveProduct();
+                    });
+                }
+                return removeProductCommand;
+            }
+        }
+
+        private void RemoveProduct()
+        {
+            _shoppingList.ShoppingList.Remove(SelectedShoppingListItem);
+            RaisePropertyChanged("ShoppingList");
+        }
+
+        public MainViewModel(Database datab, ShoppingListViewModel shoppingList)
         {
             this.database = datab;
-            
-            //Stap 1. Ophalen van onze data
-            List<BrandProduct> brandProducts = database.BrandProductRepository.GetAll().ToList();
-
-            //stap 2. omzetten van model naar viewmodel
-            List<BrandProductVM> brandProductsVM = brandProducts.Select(s => new BrandProductVM(s)).ToList();
-
-            //Stap 3. Toevoegen van del ijst aan de observable collectie
-            ShoppingList = new ObservableCollection<BrandProductVM>(brandProductsVM);
+            this._shoppingList = shoppingList;
         }
     }
 }

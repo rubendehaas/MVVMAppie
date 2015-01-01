@@ -31,20 +31,21 @@ namespace MVVMAppie.ViewModel
         public ViewModelLocator()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
-
-            ////if (ViewModelBase.IsInDesignModeStatic)
-            ////{
-            ////    // Create design time view services and models
-            ////    SimpleIoc.Default.Register<IDataService, DesignDataService>();
-            ////}
-            ////else
-            ////{
-            ////    // Create run time view services and models
-            ////    SimpleIoc.Default.Register<IDataService, DataService>();
-            ////}
+            
+            //if (ViewModelBase.IsInDesignModeStatic)
+            //{
+            //    // Create design time view services and models
+            //    SimpleIoc.Default.Register<IDataService, DesignDataService>();
+            //}
+            //else
+            //{
+            //    // Create run time view services and models
+            //    SimpleIoc.Default.Register<IDataService, DataService>();
+            //}
             SimpleIoc.Default.Register<Database>();
-
+            SimpleIoc.Default.Register<ShoppingListViewModel>();
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<ProductPickerViewModel>();
         }
 
         public MainViewModel Main
@@ -52,6 +53,14 @@ namespace MVVMAppie.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
+            }
+        }
+
+        public ProductPickerViewModel ProductPicker
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ProductPickerViewModel>();
             }
         }
         
