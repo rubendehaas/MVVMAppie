@@ -33,8 +33,6 @@ namespace MVVMAppie.ViewModel
         private ShoppingListViewModel _shoppingList;
 
         private ShoppingListItemVM _selectedShoppingListItem;
-
-
         public ShoppingListViewModel ShoppingList
         {
             get

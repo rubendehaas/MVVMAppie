@@ -9,24 +9,9 @@ using System.Windows.Input;
 
 namespace MVVMAppie.ViewModel
 {
-    /// <summary>
-    /// This class contains properties that the main View can data bind to.
-    /// <para>
-    /// Use the <strong>mvvminpc</strong> snippet to add bindable properties to this ViewModel.
-    /// </para>
-    /// <para>
-    /// You can also use Blend to data bind with the tool's support.
-    /// </para>
-    /// <para>
-    /// See http://www.galasoft.ch/mvvm
-    /// </para>
-    /// </summary>
     public class ProductPickerViewModel : ViewModelBase
     {
-        /// <summary>
-        /// Initializes a new instance of the MainViewModel class.
-        /// </summary>
-        /// 
+
         private Database database;
         private ShoppingListViewModel _shoppingList;
         public ObservableCollection<SectionVM> Sections
@@ -114,7 +99,7 @@ namespace MVVMAppie.ViewModel
         {
             if (_shoppingList.ShoppingList.Where(s => s.Name == this.SelectedProduct.Name && s.Brand == this.SelectedBrand.Name).Count() == 0)
             {
-                _shoppingList.ShoppingList.Add(new ShoppingListItemVM(new ShoppingListItem
+                _shoppingList.AddShoppingListItem(new ShoppingListItemVM(new ShoppingListItem
                 {
                     Amount = 1,
                     BrandProduct = database.BrandProductRepository.GetBySelection(this.SelectedBrand.GetBrand(), this.SelectedProduct.GetProduct())
@@ -122,10 +107,8 @@ namespace MVVMAppie.ViewModel
             }
             else
             {
-                _shoppingList.ShoppingList.Where(s => s.Name == this.SelectedProduct.Name && s.Brand == this.SelectedBrand.Name).First().Amount++;
+                _shoppingList.IncreaseAmmount(this.SelectedProduct.Name, this.SelectedBrand.Name);
             }
-            
-            RaisePropertyChanged("ShoppingList");
         }
 
         private void LoadProducts(){
