@@ -31,7 +31,15 @@ namespace MVVMAppie.ViewModel
             set;
         }
 
+        public ObservableCollection<SectionVM> SectionList
+        {
+            get;
+            set;
+        }
+
         private BrandProductVM _selectedBrandProduct;
+
+        private SectionVM _selectedSection;
 
         public BrandProductVM SelectedBrandProduct
         {
@@ -46,18 +54,35 @@ namespace MVVMAppie.ViewModel
             }
         }
 
+        public SectionVM SelectedSection
+        {
+            get
+            {
+                return _selectedSection;
+            }
+            set
+            {
+                _selectedSection = value;
+                RaisePropertyChanged("SelectedSection");
+            }
+        }
+
         public MainViewModel(Database datab)
         {
             this.database = datab;
             
             //Stap 1. Ophalen van onze data
             List<BrandProduct> brandProducts = database.BrandProductRepository.GetAll().ToList();
+            List<Section> sections = database.SectionRepository.GetAll().ToList();
 
             //stap 2. omzetten van model naar viewmodel
             List<BrandProductVM> brandProductsVM = brandProducts.Select(s => new BrandProductVM(s)).ToList();
+            List<SectionVM> sectionVM = sections.Select(s=> new SectionVM(s)).ToList();
+
 
             //Stap 3. Toevoegen van del ijst aan de observable collectie
             ShoppingList = new ObservableCollection<BrandProductVM>(brandProductsVM);
+            SectionList = new ObservableCollection<SectionVM>(sectionVM);
         }
     }
 }

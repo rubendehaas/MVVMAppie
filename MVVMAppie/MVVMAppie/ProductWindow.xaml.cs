@@ -23,5 +23,11 @@ namespace MVVMAppie
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            SectionAddWindow sectionAddWindow = new SectionAddWindow();
+            sectionAddWindow.Show();
+        }
     }
 }

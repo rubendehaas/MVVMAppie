@@ -11,6 +11,7 @@
         <DataGrid HorizontalAlignment="Left" Margin="10,99,0,0" VerticalAlignment="Top" Height="316" Width="301"/>
         <DataGrid HorizontalAlignment="Left" Margin="349,99,0,0" VerticalAlignment="Top" Height="316" Width="301"/>
         <Button Content="Voeg product toe" HorizontalAlignment="Left" Margin="874,446,0,0" VerticalAlignment="Top" Width="110" Height="38"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="293,459,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
 
     </Grid>
 </Window>

@@ -45,6 +45,7 @@ namespace MVVMAppie.ViewModel
             SimpleIoc.Default.Register<Database>();
 
             SimpleIoc.Default.Register<MainViewModel>();
+
         }
 
         public MainViewModel Main
