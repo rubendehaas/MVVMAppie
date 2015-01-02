@@ -44,10 +44,16 @@ namespace MVVMAppie.ViewModel
             //}
             SimpleIoc.Default.Register<Database>();
             SimpleIoc.Default.Register<ShoppingListVM>();
+            SimpleIoc.Default.Register<SectionsVM>();
+            SimpleIoc.Default.Register<ProductsVM>();
+            SimpleIoc.Default.Register<BrandsVM>();
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<ProductPickerViewModel>();
             SimpleIoc.Default.Register<RecipePickerViewModel>();
             SimpleIoc.Default.Register<CouponManageViewModel>();
+
+            //Maak een section manager
+            SimpleIoc.Default.Register<SectionManageViewModel>();
         }
 
         public MainViewModel Main
@@ -79,6 +85,15 @@ namespace MVVMAppie.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<CouponManageViewModel>();
+            }
+        }
+
+        //Nodig om een Viewmodel te openen
+        public SectionManageViewModel SectionManager
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<SectionManageViewModel>();
             }
         }
         

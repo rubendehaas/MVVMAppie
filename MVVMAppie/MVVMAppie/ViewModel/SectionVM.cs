@@ -25,5 +25,10 @@ namespace MVVMAppie.ViewModel
         {
             _section = item;
         }
+
+        public Section GetSection()
+        {
+            return this._section;
+        }
     }
 }

@@ -20,8 +20,6 @@ namespace MVVMAppie
     /// </summary>
     public partial class SectionAddWindow : Window
     {
-        Database db = new Database();
-
         public SectionAddWindow()
         {
             InitializeComponent();

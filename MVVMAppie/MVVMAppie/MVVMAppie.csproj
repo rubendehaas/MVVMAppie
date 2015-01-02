@@ -59,7 +59,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
@@ -149,10 +149,14 @@
     <Compile Include="RecipeWindow.xaml.cs">
       <DependentUpon>RecipeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\BrandsVM.cs" />
     <Compile Include="ViewModel\CouponManageViewModel.cs" />
     <Compile Include="ViewModel\CouponVM.cs" />
+    <Compile Include="ViewModel\ProductsVM.cs" />
     <Compile Include="ViewModel\RecipePickerViewModel.cs" />
     <Compile Include="ViewModel\RecipeVM.cs" />
+    <Compile Include="ViewModel\SectionManageViewModel.cs" />
+    <Compile Include="ViewModel\SectionsVM.cs" />
     <Compile Include="ViewModel\ShoppingListItemVM.cs" />
     <Compile Include="ViewModel\BrandVM.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
