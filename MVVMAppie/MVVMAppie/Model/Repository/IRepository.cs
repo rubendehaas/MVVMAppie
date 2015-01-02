@@ -11,7 +11,7 @@ namespace MVVMAppie.Model.Repository
         void Create(T entity);
         void Delete(T entity);
         void Update(T entity);
-        T Get(long Id);
+        T Get(int Id);
         IEnumerable<T> GetAll();
     }
 }

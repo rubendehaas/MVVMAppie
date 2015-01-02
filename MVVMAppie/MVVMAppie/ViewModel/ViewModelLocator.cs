@@ -31,21 +31,27 @@ namespace MVVMAppie.ViewModel
         public ViewModelLocator()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
-
-            ////if (ViewModelBase.IsInDesignModeStatic)
-            ////{
-            ////    // Create design time view services and models
-            ////    SimpleIoc.Default.Register<IDataService, DesignDataService>();
-            ////}
-            ////else
-            ////{
-            ////    // Create run time view services and models
-            ////    SimpleIoc.Default.Register<IDataService, DataService>();
-            ////}
+            
+            //if (ViewModelBase.IsInDesignModeStatic)
+            //{
+            //    // Create design time view services and models
+            //    SimpleIoc.Default.Register<IDataService, DesignDataService>();
+            //}
+            //else
+            //{
+            //    // Create run time view services and models
+            //    SimpleIoc.Default.Register<IDataService, DataService>();
+            //}
             SimpleIoc.Default.Register<Database>();
-
+            SimpleIoc.Default.Register<ShoppingListVM>();
             SimpleIoc.Default.Register<MainViewModel>();
+<<<<<<< HEAD
 
+=======
+            SimpleIoc.Default.Register<ProductPickerViewModel>();
+            SimpleIoc.Default.Register<RecipePickerViewModel>();
+            SimpleIoc.Default.Register<CouponManageViewModel>();
+>>>>>>> origin/master
         }
 
         public MainViewModel Main
@@ -53,6 +59,30 @@ namespace MVVMAppie.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
+            }
+        }
+
+        public ProductPickerViewModel ProductPicker
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ProductPickerViewModel>();
+            }
+        }
+
+        public RecipePickerViewModel RecipePicker
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<RecipePickerViewModel>();
+            }
+        }
+
+        public CouponManageViewModel CouponManager
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<CouponManageViewModel>();
             }
         }
         

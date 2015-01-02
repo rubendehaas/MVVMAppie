@@ -13,6 +13,22 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\marijn\Documents\School\Programmeren\Programmeren 6\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,6 +48,18 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>0F3B40EEED71FFD576B02D9F39A866F6001C1F80</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>MVVMAppie_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
@@ -91,21 +119,48 @@
     <Compile Include="Migrations\201412291457321_test2.Designer.cs">
       <DependentUpon>201412291457321_test2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201412311035591_RemovedShoppingList.cs" />
+    <Compile Include="Migrations\201412311035591_RemovedShoppingList.Designer.cs">
+      <DependentUpon>201412311035591_RemovedShoppingList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201501011401005_ChangedRecipes.cs" />
+    <Compile Include="Migrations\201501011401005_ChangedRecipes.Designer.cs">
+      <DependentUpon>201501011401005_ChangedRecipes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201501020620127_CouponChange.cs" />
+    <Compile Include="Migrations\201501020620127_CouponChange.Designer.cs">
+      <DependentUpon>201501020620127_CouponChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201501020646515_AddCodeToCoupon.cs" />
+    <Compile Include="Migrations\201501020646515_AddCodeToCoupon.Designer.cs">
+      <DependentUpon>201501020646515_AddCodeToCoupon.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\BrandProduct.cs" />
     <Compile Include="Model\Database.cs" />
     <Compile Include="Model\MyEntityContext.cs" />
+    <Compile Include="Model\Repository\BrandProductRepository.cs" />
     <Compile Include="Model\Repository\IRepository.cs" />
     <Compile Include="Model\Repository\Repository.cs" />
     <Compile Include="SectionAddWindow.xaml.cs">
       <DependentUpon>SectionAddWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\ShoppingListItem.cs" />
     <Compile Include="RecipeWindow.xaml.cs">
       <DependentUpon>RecipeWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\BrandProductVM.cs" />
+    <Compile Include="ViewModel\CouponManageViewModel.cs" />
+    <Compile Include="ViewModel\CouponVM.cs" />
+    <Compile Include="ViewModel\RecipePickerViewModel.cs" />
+    <Compile Include="ViewModel\RecipeVM.cs" />
+    <Compile Include="ViewModel\ShoppingListItemVM.cs" />
+    <Compile Include="ViewModel\BrandVM.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\SectionVM.cs" />
+    <Compile Include="ViewModel\ProductPickerViewModel.cs" />
+    <Compile Include="ViewModel\ProductVM.cs" />
+    <Compile Include="ViewModel\ShoppingListVM.cs" />
+
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="ProductWindow.xaml.cs">
       <DependentUpon>ProductWindow.xaml</DependentUpon>
@@ -168,10 +223,25 @@
     <EmbeddedResource Include="Migrations\201412291457321_test2.resx">
       <DependentUpon>201412291457321_test2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412311035591_RemovedShoppingList.resx">
+      <DependentUpon>201412311035591_RemovedShoppingList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501011401005_ChangedRecipes.resx">
+      <DependentUpon>201501011401005_ChangedRecipes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501020620127_CouponChange.resx">
+      <DependentUpon>201501020620127_CouponChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501020646515_AddCodeToCoupon.resx">
+      <DependentUpon>201501020646515_AddCodeToCoupon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
+    <None Include="MVVMAppie_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -182,7 +252,23 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

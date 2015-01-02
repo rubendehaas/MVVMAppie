@@ -9,19 +9,7 @@ namespace MVVMAppie.Model
 {
     public class ShoppingList
     {
-        [Key]
-        public int ShoppingListId
-        {
-            get;
-            set;
-        }
-        public virtual List<BrandProduct> BrandProducts
-        {
-            get;
-            set;
-        }
-
-        public int Amount
+        public virtual List<ShoppingListItem> ShoppingListItems
         {
             get;
             set;
@@ -31,6 +19,26 @@ namespace MVVMAppie.Model
         {
             get;
             set;
+        }
+
+        public double TotalPrice
+        {
+            get
+            {
+                double x = 0;
+                foreach (ShoppingListItem i in ShoppingListItems)
+                {
+                    x = x + (i.Amount * i.BrandProduct.Price);
+                }
+
+                return Math.Round(x, 2);
+            }
+        }
+
+        public ShoppingList()
+        {
+            this.ShoppingListItems = new List<ShoppingListItem>();
+            this.Coupons = new List<Coupon>();
         }
     }
 }

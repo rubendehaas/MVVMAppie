@@ -38,7 +38,7 @@ namespace MVVMAppie.Model.Repository
             entry.State = System.Data.Entity.EntityState.Modified;
         }
 
-        public virtual T Get(long id)
+        public virtual T Get(int id)
         {
             return this.dbSet.Find(id);
         }

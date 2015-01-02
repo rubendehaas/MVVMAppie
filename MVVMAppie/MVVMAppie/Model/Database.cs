@@ -11,7 +11,7 @@ namespace MVVMAppie.Model
     {
         private MyEntityContext context = new MyEntityContext();
         private Repository<Product> productRepository;
-        private Repository<BrandProduct> brandProductRepository;
+        private BrandProductRepository brandProductRepository;
         private Repository<Brand> brandRepository;
         private Repository<Coupon> couponRepository;
         private Repository<Recipe> recipeRepository;
@@ -27,12 +27,12 @@ namespace MVVMAppie.Model
             }
         }
 
-        public Repository<BrandProduct> BrandProductRepository
+        public BrandProductRepository BrandProductRepository
         {
             get
             {
                 if (this.brandProductRepository == null)
-                    this.brandProductRepository = new Repository<BrandProduct>(context);
+                    this.brandProductRepository = new BrandProductRepository(context);
                 return brandProductRepository;
             }
         }

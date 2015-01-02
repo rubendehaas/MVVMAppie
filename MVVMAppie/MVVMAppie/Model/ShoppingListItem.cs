@@ -7,28 +7,21 @@ using System.Threading.Tasks;
 
 namespace MVVMAppie.Model
 {
-    public class Product
+    public class ShoppingListItem
     {
         [Key]
-        public int ProductId
+        public int ShoppingListItemId
+        {
+            get;
+            set;
+        }
+        public virtual  BrandProduct BrandProduct
         {
             get;
             set;
         }
 
-        public string Name
-        {
-            get;
-            set;
-        }
-
-        public virtual List<Brand> Brands
-        {
-            get;
-            set;
-        }
-
-        public virtual Section Section
+        public int Amount
         {
             get;
             set;

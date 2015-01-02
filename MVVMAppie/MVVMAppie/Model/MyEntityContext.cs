@@ -49,10 +49,5 @@ namespace MVVMAppie.Model
             get;
             set;
         }
-        public DbSet<ShoppingList> ShoppingList
-        {
-            get;
-            set;
-        }
     } 
 }

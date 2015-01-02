@@ -33,5 +33,17 @@ namespace MVVMAppie.Model
             get;
             set;
         }
+
+        public virtual List<Recipe> Recipes
+        {
+            get;
+            set;
+        }
+
+        public virtual List<Coupon> Coupons
+        {
+            get;
+            set;
+        }
     }
 }

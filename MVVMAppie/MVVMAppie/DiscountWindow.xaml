@@ -1,13 +1,14 @@
 ﻿<Window x:Class="MVVMAppie.DiscountWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="DiscountWindow" Height="300" Width="300">
+        Title="DiscountWindow" Height="300" Width="300"
+        DataContext="{Binding CouponManager, Source={StaticResource Locator}}">
     <Grid>
         <Label Content="Uw korting" HorizontalAlignment="Left" Margin="113,10,0,0" VerticalAlignment="Top"/>
-        <DataGrid HorizontalAlignment="Left" Margin="10,91,0,0" VerticalAlignment="Top" Height="77" Width="274"/>
-        <Button Content="Verwijder korting" HorizontalAlignment="Left" Margin="10,222,0,0" VerticalAlignment="Top" Width="110" Height="38"/>
-        <Button Content="Voeg toe" HorizontalAlignment="Left" Margin="206,47,0,0" VerticalAlignment="Top" Width="78" Height="24"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,48,0,0" TextWrapping="Wrap" Text="Kortingscode" VerticalAlignment="Top" Width="191"/>
+        <DataGrid ItemsSource="{Binding ShoppingList.Coupons}" SelectedItem="{Binding SelectedCoupon}" HorizontalAlignment="Left" Margin="10,91,0,0" VerticalAlignment="Top" Height="77" Width="274"/>
+        <Button Command="{Binding RemoveCouponCommand}"  Content="Verwijder korting" HorizontalAlignment="Left" Margin="10,222,0,0" VerticalAlignment="Top" Width="110" Height="38"/>
+        <Button Command="{Binding AddCouponCommand}" Content="Voeg toe" HorizontalAlignment="Left" Margin="206,47,0,0" VerticalAlignment="Top" Width="78" Height="24"/>
+        <TextBox  HorizontalAlignment="Left" Height="23" Margin="10,48,0,0" TextWrapping="Wrap" Text="{Binding TextIn}" VerticalAlignment="Top" Width="191"/>
         <Button Content="Wijzig korting" HorizontalAlignment="Left" Margin="174,222,0,0" VerticalAlignment="Top" Width="110" Height="38"/>
 
     </Grid>

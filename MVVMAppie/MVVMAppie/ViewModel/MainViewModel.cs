@@ -1,35 +1,30 @@
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
+using GalaSoft.MvvmLight.Threading;
 using MVVMAppie.Model;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 
 namespace MVVMAppie.ViewModel
 {
-    /// <summary>
-    /// This class contains properties that the main View can data bind to.
-    /// <para>
-    /// Use the <strong>mvvminpc</strong> snippet to add bindable properties to this ViewModel.
-    /// </para>
-    /// <para>
-    /// You can also use Blend to data bind with the tool's support.
-    /// </para>
-    /// <para>
-    /// See http://www.galasoft.ch/mvvm
-    /// </para>
-    /// </summary>
     public class MainViewModel : ViewModelBase
     {
-        /// <summary>
-        /// Initializes a new instance of the MainViewModel class.
-        /// </summary>
-        /// 
         private Database database;
-        public ObservableCollection<BrandProductVM> ShoppingList
+        private ShoppingListVM _shoppingList;
+
+        private ShoppingListItemVM _selectedShoppingListItem;
+        public ShoppingListVM ShoppingList
         {
-            get;
-            set;
+            get
+            {
+                return _shoppingList;
+            }
         }
+<<<<<<< HEAD
 
         public ObservableCollection<SectionVM> SectionList
         {
@@ -42,18 +37,22 @@ namespace MVVMAppie.ViewModel
         private SectionVM _selectedSection;
 
         public BrandProductVM SelectedBrandProduct
+=======
+        public ShoppingListItemVM SelectedShoppingListItem
+>>>>>>> origin/master
         {
             get
             {
-                return _selectedBrandProduct;
+                return _selectedShoppingListItem;
             }
 
             set{
-                _selectedBrandProduct = value;
-                RaisePropertyChanged("SelectedBrandProducts");
+                _selectedShoppingListItem = value;
+                RaisePropertyChanged("SelectedShoppingListItem");
             }
         }
 
+<<<<<<< HEAD
         public SectionVM SelectedSection
         {
             get
@@ -83,6 +82,28 @@ namespace MVVMAppie.ViewModel
             //Stap 3. Toevoegen van del ijst aan de observable collectie
             ShoppingList = new ObservableCollection<BrandProductVM>(brandProductsVM);
             SectionList = new ObservableCollection<SectionVM>(sectionVM);
+=======
+        private RelayCommand removeProductCommand;
+        public RelayCommand RemoveProductCommand
+        {
+            get
+            {
+                if (removeProductCommand == null)
+                {
+                    removeProductCommand = new RelayCommand(() =>
+                    {
+                        ShoppingList.RemoveProduct(SelectedShoppingListItem);
+                    });
+                }
+                return removeProductCommand;
+            }
+        }
+
+        public MainViewModel(Database datab, ShoppingListVM shoppingList)
+        {
+            this.database = datab;
+            this._shoppingList = shoppingList;
+>>>>>>> origin/master
         }
     }
 }
