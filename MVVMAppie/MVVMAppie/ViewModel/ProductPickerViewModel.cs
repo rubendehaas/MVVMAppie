@@ -80,6 +80,7 @@ namespace MVVMAppie.ViewModel
             }
         }
         private RelayCommand addProductCommand;
+
         public RelayCommand AddProductCommand
         {
             get
