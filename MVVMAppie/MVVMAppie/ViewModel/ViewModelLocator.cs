@@ -47,6 +47,7 @@ namespace MVVMAppie.ViewModel
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<ProductPickerViewModel>();
             SimpleIoc.Default.Register<RecipePickerViewModel>();
+            SimpleIoc.Default.Register<CouponManageViewModel>();
         }
 
         public MainViewModel Main
@@ -70,6 +71,14 @@ namespace MVVMAppie.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<RecipePickerViewModel>();
+            }
+        }
+
+        public CouponManageViewModel CouponManager
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<CouponManageViewModel>();
             }
         }
         

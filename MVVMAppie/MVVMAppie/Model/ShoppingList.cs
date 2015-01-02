@@ -38,6 +38,7 @@ namespace MVVMAppie.Model
         public ShoppingList()
         {
             this.ShoppingListItems = new List<ShoppingListItem>();
+            this.Coupons = new List<Coupon>();
         }
     }
 }

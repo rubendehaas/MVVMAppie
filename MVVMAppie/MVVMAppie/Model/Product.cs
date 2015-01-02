@@ -28,12 +28,6 @@ namespace MVVMAppie.Model
             set;
         }
 
-        public virtual List<Coupon> Coupons
-        {
-            get;
-            set;
-        }
-
         public virtual Section Section
         {
             get;

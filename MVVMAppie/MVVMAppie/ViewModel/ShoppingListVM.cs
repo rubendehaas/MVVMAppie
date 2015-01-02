@@ -13,6 +13,7 @@ namespace MVVMAppie.ViewModel
     public class ShoppingListVM : ViewModelBase
     {
         private ShoppingList _shoppingList;
+        private Database database;
         public ObservableCollection<ShoppingListItemVM> ShoppingList
         {
             get
@@ -25,6 +26,14 @@ namespace MVVMAppie.ViewModel
             get
             {
                 return _shoppingList.TotalPrice;
+            }
+        }
+
+        public ObservableCollection<CouponVM> Coupons
+        {
+            get
+            {
+                return new ObservableCollection<CouponVM>(this._shoppingList.Coupons.Select(c => new CouponVM(c, this)).ToList());
             }
         }
         public void AmountChanged()
@@ -46,6 +55,7 @@ namespace MVVMAppie.ViewModel
         }
         public ShoppingListVM(Database datab)
         {
+            this.database = datab;
             this._shoppingList = new ShoppingList();
 
         }
@@ -55,6 +65,18 @@ namespace MVVMAppie.ViewModel
             this._shoppingList.ShoppingListItems.Remove(SelectedShoppingListItem.GetShoppingListItem());
             RaisePropertyChanged("ShoppingList");
             RaisePropertyChanged("TotalPrice");
+        }
+
+        public void RemoveCoupon(CouponVM SelectedCoupon)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddCoupon(string TextIn)
+        {
+            Coupon coupon = database.CouponRepository.GetAll().Where(c => c.Code.Equals(TextIn)).FirstOrDefault();
+            this._shoppingList.Coupons.Add(coupon);
+            RaisePropertyChanged("Coupons");
         }
     }
 }

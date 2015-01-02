@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace MVVMAppie.Model
@@ -34,7 +35,13 @@ namespace MVVMAppie.Model
             get;
             set;
         }
-        public virtual BrandProduct BrandProduct
+
+        public string Code
+        {
+            get;
+            set;
+        }
+        public virtual List<BrandProduct> BrandProduct
         {
             get;
             set;

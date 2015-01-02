@@ -127,6 +127,14 @@
     <Compile Include="Migrations\201501011401005_ChangedRecipes.Designer.cs">
       <DependentUpon>201501011401005_ChangedRecipes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201501020620127_CouponChange.cs" />
+    <Compile Include="Migrations\201501020620127_CouponChange.Designer.cs">
+      <DependentUpon>201501020620127_CouponChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201501020646515_AddCodeToCoupon.cs" />
+    <Compile Include="Migrations\201501020646515_AddCodeToCoupon.Designer.cs">
+      <DependentUpon>201501020646515_AddCodeToCoupon.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\BrandProduct.cs" />
     <Compile Include="Model\Database.cs" />
@@ -138,6 +146,8 @@
     <Compile Include="RecipeWindow.xaml.cs">
       <DependentUpon>RecipeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\CouponManageViewModel.cs" />
+    <Compile Include="ViewModel\CouponVM.cs" />
     <Compile Include="ViewModel\RecipePickerViewModel.cs" />
     <Compile Include="ViewModel\RecipeVM.cs" />
     <Compile Include="ViewModel\ShoppingListItemVM.cs" />
@@ -210,6 +220,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201501011401005_ChangedRecipes.resx">
       <DependentUpon>201501011401005_ChangedRecipes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501020620127_CouponChange.resx">
+      <DependentUpon>201501020620127_CouponChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501020646515_AddCodeToCoupon.resx">
+      <DependentUpon>201501020646515_AddCodeToCoupon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
