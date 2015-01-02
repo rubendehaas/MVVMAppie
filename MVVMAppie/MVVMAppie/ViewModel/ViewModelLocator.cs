@@ -45,13 +45,9 @@ namespace MVVMAppie.ViewModel
             SimpleIoc.Default.Register<Database>();
             SimpleIoc.Default.Register<ShoppingListVM>();
             SimpleIoc.Default.Register<MainViewModel>();
-<<<<<<< HEAD
-
-=======
             SimpleIoc.Default.Register<ProductPickerViewModel>();
             SimpleIoc.Default.Register<RecipePickerViewModel>();
             SimpleIoc.Default.Register<CouponManageViewModel>();
->>>>>>> origin/master
         }
 
         public MainViewModel Main

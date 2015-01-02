@@ -8,18 +8,11 @@
         <Label Content="Producten" HorizontalAlignment="Left" Margin="349,74,0,0" VerticalAlignment="Top"/>
         <Label Content="Merken" HorizontalAlignment="Left" Margin="683,74,0,0" VerticalAlignment="Top"/>
         <Label Content="Stel hier uw boodschappenlijst samen" HorizontalAlignment="Left" Margin="398,31,0,0" VerticalAlignment="Top"/>
-<<<<<<< HEAD
-        <DataGrid HorizontalAlignment="Left" Margin="683,99,0,0" VerticalAlignment="Top" Height="316" Width="301"/>
-        <DataGrid HorizontalAlignment="Left" Margin="10,99,0,0" VerticalAlignment="Top" Height="316" Width="301"/>
-        <DataGrid HorizontalAlignment="Left" Margin="349,99,0,0" VerticalAlignment="Top" Height="316" Width="301"/>
-        <Button Content="Voeg product toe" HorizontalAlignment="Left" Margin="874,446,0,0" VerticalAlignment="Top" Width="110" Height="38"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="293,459,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-=======
         <DataGrid ItemsSource="{Binding Brands}" SelectedItem="{Binding SelectedBrand}" ColumnWidth="*" HorizontalAlignment="Left" Margin="683,99,0,0" VerticalAlignment="Top" Height="316" Width="301"/>
         <DataGrid ItemsSource="{Binding Sections}" SelectedItem="{Binding SelectedSection}" ColumnWidth="*" HorizontalAlignment="Left" Margin="10,99,0,0" VerticalAlignment="Top" Height="316" Width="301"/>
         <DataGrid ItemsSource="{Binding Products}" SelectedItem="{Binding SelectedProduct}" ColumnWidth="*"  HorizontalAlignment="Left" Margin="349,99,0,0" VerticalAlignment="Top" Height="316" Width="301"/>
         <Button Command="{Binding AddProductCommand}" Content="Voeg product toe" HorizontalAlignment="Left" Margin="874,446,0,0" VerticalAlignment="Top" Width="110" Height="38"/>
->>>>>>> origin/master
 
     </Grid>
 </Window>
