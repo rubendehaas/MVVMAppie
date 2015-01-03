@@ -18,6 +18,7 @@ namespace MVVMAppie.ViewModel
         private CouponVM _selectedCoupon;
 
         private String _textIn;
+        private String _inputError;
         public ShoppingListVM ShoppingList
         {
             get
@@ -45,7 +46,6 @@ namespace MVVMAppie.ViewModel
             get
             {
                 return _textIn;
-                ;
             }
 
             set
@@ -53,6 +53,20 @@ namespace MVVMAppie.ViewModel
                 _textIn = value;
                 RaisePropertyChanged("TextIn");
             }
+        }
+
+        public String InputError
+        {
+            get
+            {
+                return _inputError;
+            }
+            set
+            {
+                _inputError = value;
+                RaisePropertyChanged("InputError");
+            }
+
         }
 
         private RelayCommand removeCouponCommand;
@@ -79,7 +93,7 @@ namespace MVVMAppie.ViewModel
                 {
                     addCouponCommand = new RelayCommand(() =>
                     {
-                        ShoppingList.AddCoupon(TextIn);
+                        InputError = ShoppingList.AddCoupon(TextIn);
                     });
                 }
                 return addCouponCommand;

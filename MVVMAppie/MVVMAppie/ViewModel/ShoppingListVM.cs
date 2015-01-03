@@ -29,6 +29,14 @@ namespace MVVMAppie.ViewModel
             }
         }
 
+        public double Discount
+        {
+            get
+            {
+                return _shoppingList.Discount;
+            }
+        }
+
         public ObservableCollection<CouponVM> Coupons
         {
             get
@@ -38,20 +46,20 @@ namespace MVVMAppie.ViewModel
         }
         public void AmountChanged()
         {
-            RaisePropertyChanged("TotalPrice");
+            RaisePriceChanges();
         }
 
         public void AddShoppingListItem(ShoppingListItemVM item)
         {
             this._shoppingList.ShoppingListItems.Add(item.GetShoppingListItem());
             RaisePropertyChanged("ShoppingList");
-            RaisePropertyChanged("TotalPrice");
+            RaisePriceChanges();
         }
         public void IncreaseAmmount(Product product, Brand brand)
         {
             this._shoppingList.ShoppingListItems.Where(s => s.BrandProduct.Brand.Equals(brand) && s.BrandProduct.Product.Equals(product)).First().Amount++;
             RaisePropertyChanged("ShoppingList");
-            RaisePropertyChanged("TotalPrice");
+            RaisePriceChanges();
         }
         public ShoppingListVM(Database datab)
         {
@@ -64,19 +72,44 @@ namespace MVVMAppie.ViewModel
         {
             this._shoppingList.ShoppingListItems.Remove(SelectedShoppingListItem.GetShoppingListItem());
             RaisePropertyChanged("ShoppingList");
-            RaisePropertyChanged("TotalPrice");
+            RaisePriceChanges();
         }
 
-        public void RemoveCoupon(CouponVM SelectedCoupon)
+        public void RemoveCoupon(CouponVM coupon)
         {
-            throw new NotImplementedException();
-        }
-
-        public void AddCoupon(string TextIn)
-        {
-            Coupon coupon = database.CouponRepository.GetAll().Where(c => c.Code.Equals(TextIn)).FirstOrDefault();
-            this._shoppingList.Coupons.Add(coupon);
+            this._shoppingList.Coupons.Remove(coupon.GetCoupon());
+            RaisePriceChanges();
             RaisePropertyChanged("Coupons");
+        }
+
+        public String AddCoupon(string TextIn)
+        {
+            if (database.CouponRepository.GetAll().Where(c => c.Code.Equals(TextIn)).Count() > 0)
+            {
+                Coupon coupon = database.CouponRepository.GetAll().Where(c => c.Code.Equals(TextIn)).First();
+                if (coupon.StartDate <= DateTime.Now && coupon.EndDate >= DateTime.Now)
+                {
+                    this._shoppingList.Coupons.Add(coupon);
+                    RaisePriceChanges();
+                    RaisePropertyChanged("Coupons");
+                    return null;
+                }
+                else
+                {
+                    return "This coupon is not valid today";
+                }
+                
+            }
+            else
+            {
+                return "Coupon not found";
+            }
+        }
+
+        private void RaisePriceChanges()
+        {
+            RaisePropertyChanged("TotalPrice");
+            RaisePropertyChanged("Discount");
         }
     }
 }

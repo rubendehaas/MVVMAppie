@@ -21,6 +21,28 @@ namespace MVVMAppie.Model
             set;
         }
 
+        public double Discount
+        {
+            get
+            {
+                double x = 0;
+                foreach (Coupon coupon in Coupons)
+                {
+                    foreach (BrandProduct product in coupon.BrandProduct)
+                    {
+                        foreach (ShoppingListItem item in ShoppingListItems)
+                        {
+                            if (item.BrandProduct.Equals(product))
+                            {
+                                x = x + (item.Amount * coupon.Amount);
+                            }
+                        }
+                    }
+                }
+                return Math.Round(x, 2);
+            }
+        }
+
         public double TotalPrice
         {
             get
@@ -30,7 +52,7 @@ namespace MVVMAppie.Model
                 {
                     x = x + (i.Amount * i.BrandProduct.Price);
                 }
-
+                x = x - this.Discount;
                 return Math.Round(x, 2);
             }
         }

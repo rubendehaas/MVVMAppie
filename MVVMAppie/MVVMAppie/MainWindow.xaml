@@ -10,7 +10,9 @@
         <Button Content="Recepten" HorizontalAlignment="Left" Margin="578,441,0,0" VerticalAlignment="Top" Width="110" Height="38" Click="Button_Click_1"/>
         <Button Content="Kortingen" HorizontalAlignment="Left" Margin="578,398,0,0" VerticalAlignment="Top" Width="110" Height="38" Click="Button_Click"/>
         <Button Command="{Binding RemoveProductCommand}" Content="Verwijder product" HorizontalAlignment="Left" Margin="10,484,0,0" VerticalAlignment="Top" Width="110" Height="38"/>
-        <Label Content="Total Price:" HorizontalAlignment="Left" Height="30" Margin="412,388,0,0" VerticalAlignment="Top" Width="73"/>
-        <Label Content="{Binding ShoppingList.TotalPrice}" HorizontalAlignment="Left" Height="30" Margin="490,388,0,0" VerticalAlignment="Top" Width="73"/>
+        <Label Content="Discount:" HorizontalAlignment="Left" Height="30" Margin="412,375,0,0" VerticalAlignment="Top" Width="73"/>
+        <Label Content="{Binding ShoppingList.Discount}" HorizontalAlignment="Left" Height="30" Margin="490,375,0,0" VerticalAlignment="Top" Width="73"/>
+        <Label Content="Total Price:" HorizontalAlignment="Left" Height="30" Margin="412,400,0,0" VerticalAlignment="Top" Width="73"/>
+        <Label Content="{Binding ShoppingList.TotalPrice}" HorizontalAlignment="Left" Height="30" Margin="490,400,0,0" VerticalAlignment="Top" Width="73"/>
     </Grid>
 </Window>
