@@ -46,5 +46,15 @@ namespace MVVMAppie.ViewModel
             //Roep dat de property sections is veranderd
             RaisePropertyChanged("Sections");
         }
+
+        public void deleteSectionCommand(Section section)
+        {
+
+            this.database.SectionRepository.Delete(section);
+            this.database.Save();
+
+            this._sections = this.database.SectionRepository.GetAll().ToList();
+            RaisePropertyChanged("Sections");
+        }
     }
 }

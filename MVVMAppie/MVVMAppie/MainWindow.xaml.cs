@@ -42,5 +42,11 @@ namespace MVVMAppie
             ProductWindow productWindow = new ProductWindow();
             productWindow.Show();
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            CRUDWindow crudWindow = new CRUDWindow();
+            crudWindow.Show();
+        }
     }
 }
