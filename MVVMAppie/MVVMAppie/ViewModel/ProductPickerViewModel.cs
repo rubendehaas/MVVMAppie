@@ -159,33 +159,6 @@ namespace MVVMAppie.ViewModel
             }
         }
 
-        //private void LoadProducts(){
-        //    this.SelectedBrand = null;
-        //    this.SelectedProduct = null;
-        //    List<Product> products = database.ProductRepository.GetAll().Where(p => p.Section.Name == SelectedSection.Name).ToList();
-        //    List<ProductVM> productVM = products.Select(s => new ProductVM(s)).ToList();
-        //    Products = new ObservableCollection<ProductVM>(productVM);
-        //    RaisePropertyChanged("Products");
-        //}
-
-        //private void LoadBrands()
-        //{
-        //    this.SelectedBrand = null;
-        //    if (this.SelectedProduct != null)
-        //    {
-        //        List<Brand> brands = this.SelectedProduct.GetProduct().Brands.ToList();
-        //        List<BrandVM> brandVM = brands.Select(s => new BrandVM(s)).ToList();
-        //        Brands = new ObservableCollection<BrandVM>(brandVM);
-        //        RaisePropertyChanged("Brands");
-        //    }
-        //    else
-        //    {
-        //        Brands = null;
-        //        RaisePropertyChanged("Brands");
-        //    }
-            
-        //}
-
         public ProductPickerViewModel(Database datab, ShoppingListVM shoppingList, SectionsVM sections, ProductsVM products, BrandsVM brands)
         {
             this.database = datab;
