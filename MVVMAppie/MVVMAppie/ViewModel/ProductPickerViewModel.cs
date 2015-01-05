@@ -145,17 +145,20 @@ namespace MVVMAppie.ViewModel
 
         private void AddProduct()
         {
-            if (_shoppingList.ShoppingList.Where(s => s.Name == this.SelectedProduct.Name && s.Brand == this.SelectedBrand.Name).Count() == 0)
+            if (this.SelectedBrand != null && this.SelectedProduct != null)
             {
-                _shoppingList.AddShoppingListItem(new ShoppingListItemVM(new ShoppingListItem
+                if (_shoppingList.ShoppingList.Where(s => s.Name == this.SelectedProduct.Name && s.Brand == this.SelectedBrand.Name).Count() == 0)
                 {
-                    Amount = 1,
-                    BrandProduct = database.BrandProductRepository.GetBySelection(this.SelectedBrand.GetBrand(), this.SelectedProduct.GetProduct())
-                }, _shoppingList));
-            }
-            else
-            {
-                _shoppingList.IncreaseAmmount(this.SelectedProduct.GetProduct(), this.SelectedBrand.GetBrand());
+                    _shoppingList.AddShoppingListItem(new ShoppingListItemVM(new ShoppingListItem
+                    {
+                        Amount = 1,
+                        BrandProduct = database.BrandProductRepository.GetBySelection(this.SelectedBrand.GetBrand(), this.SelectedProduct.GetProduct())
+                    }, _shoppingList));
+                }
+                else
+                {
+                    _shoppingList.IncreaseAmmount(this.SelectedProduct.GetProduct(), this.SelectedBrand.GetBrand());
+                }
             }
         }
 

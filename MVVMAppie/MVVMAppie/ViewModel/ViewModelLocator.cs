@@ -54,6 +54,7 @@ namespace MVVMAppie.ViewModel
 
             //Maak een section manager
             SimpleIoc.Default.Register<SectionManageViewModel>();
+            SimpleIoc.Default.Register<BrandManageViewModel>();
         }
 
         public MainViewModel Main
@@ -94,6 +95,14 @@ namespace MVVMAppie.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<SectionManageViewModel>();
+            }
+        }
+
+        public BrandManageViewModel BrandManager
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<BrandManageViewModel>();
             }
         }
         

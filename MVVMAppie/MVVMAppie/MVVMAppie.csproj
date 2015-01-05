@@ -104,6 +104,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BrandEditWindow.xaml.cs">
+      <DependentUpon>BrandEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CRUDBrandWindow.xaml.cs">
+      <DependentUpon>CRUDBrandWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CRUDSectionWindow.xaml.cs">
       <DependentUpon>CRUDSectionWindow.xaml</DependentUpon>
     </Compile>
@@ -148,6 +154,9 @@
     <Compile Include="Model\Repository\BrandProductRepository.cs" />
     <Compile Include="Model\Repository\IRepository.cs" />
     <Compile Include="Model\Repository\Repository.cs" />
+    <Compile Include="BrandAddWindow.xaml.cs">
+      <DependentUpon>BrandAddWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SectionAddWindow.xaml.cs">
       <DependentUpon>SectionAddWindow.xaml</DependentUpon>
     </Compile>
@@ -155,6 +164,7 @@
     <Compile Include="RecipeWindow.xaml.cs">
       <DependentUpon>RecipeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\BrandManageViewModel.cs" />
     <Compile Include="ViewModel\BrandsVM.cs" />
     <Compile Include="ViewModel\CouponManageViewModel.cs" />
     <Compile Include="ViewModel\CouponVM.cs" />
@@ -174,6 +184,14 @@
     <Compile Include="ProductWindow.xaml.cs">
       <DependentUpon>ProductWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="BrandEditWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CRUDBrandWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="CRUDSectionWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -198,6 +216,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="BrandAddWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="SectionAddWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

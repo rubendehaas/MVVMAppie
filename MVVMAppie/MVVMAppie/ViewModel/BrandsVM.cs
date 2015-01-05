@@ -29,9 +29,16 @@ namespace MVVMAppie.ViewModel
         }
 
 
-        public void AddBrandCommand(string TextIn)
+        public void AddBrand(string TextIn)
         {
-            throw new NotImplementedException();
+            Brand brand = new Brand
+            {
+                Name = TextIn
+            };
+            this.database.BrandRepository.Create(brand);
+            this.database.Save();
+            this._brands = this.database.BrandRepository.GetAll().ToList();
+            RaisePropertyChanged("Brands");
         }
 
         public ObservableCollection<BrandVM> GetPickerBrands(Product product)
@@ -45,6 +52,15 @@ namespace MVVMAppie.ViewModel
                 return null;
             }
 
+        }
+
+        public void DeleteBrand(Brand brand)
+        {
+            this.database.BrandRepository.Delete(brand);
+            this.database.Save();
+
+            this._brands = this.database.BrandRepository.GetAll().ToList();
+            RaisePropertyChanged("Brands");
         }
     }
 }
