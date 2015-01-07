@@ -70,9 +70,12 @@ namespace MVVMAppie.ViewModel
 
         public void RemoveProduct(ShoppingListItemVM SelectedShoppingListItem)
         {
-            this._shoppingList.ShoppingListItems.Remove(SelectedShoppingListItem.GetShoppingListItem());
-            RaisePropertyChanged("ShoppingList");
-            RaisePriceChanges();
+            if (SelectedShoppingListItem != null)
+            {
+                this._shoppingList.ShoppingListItems.Remove(SelectedShoppingListItem.GetShoppingListItem());
+                RaisePropertyChanged("ShoppingList");
+                RaisePriceChanges();
+            }
         }
 
         public void RemoveCoupon(CouponVM coupon)

@@ -15,7 +15,7 @@
     <WarningLevel>4</WarningLevel>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>C:\Users\marijn\Documents\School\Programmeren\Programmeren 6\</PublishUrl>
-    <Install>true</Install>
+    <Install>false</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
@@ -24,7 +24,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -107,6 +107,12 @@
     <Compile Include="CRUDProductWindow.xaml.cs">
       <DependentUpon>CRUDProductWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BrandEditWindow.xaml.cs">
+      <DependentUpon>BrandEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CRUDBrandWindow.xaml.cs">
+      <DependentUpon>CRUDBrandWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CRUDSectionWindow.xaml.cs">
       <DependentUpon>CRUDSectionWindow.xaml</DependentUpon>
     </Compile>
@@ -151,6 +157,9 @@
     <Compile Include="Model\Repository\BrandProductRepository.cs" />
     <Compile Include="Model\Repository\IRepository.cs" />
     <Compile Include="Model\Repository\Repository.cs" />
+    <Compile Include="BrandAddWindow.xaml.cs">
+      <DependentUpon>BrandAddWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SectionAddWindow.xaml.cs">
       <DependentUpon>SectionAddWindow.xaml</DependentUpon>
     </Compile>
@@ -158,6 +167,7 @@
     <Compile Include="RecipeWindow.xaml.cs">
       <DependentUpon>RecipeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\BrandManageViewModel.cs" />
     <Compile Include="ViewModel\BrandsVM.cs" />
     <Compile Include="ViewModel\CouponManageViewModel.cs" />
     <Compile Include="ViewModel\CouponVM.cs" />
@@ -180,6 +190,14 @@
     <Page Include="CRUDProductWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BrandEditWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CRUDBrandWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="CRUDSectionWindow.xaml">
       <SubType>Designer</SubType>
@@ -205,6 +223,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="BrandAddWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="SectionAddWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -15,25 +15,25 @@ using System.Windows.Shapes;
 namespace MVVMAppie
 {
     /// <summary>
-    /// Interaction logic for CRUD.xaml
+    /// Interaction logic for CRUDSectionWindow.xaml
     /// </summary>
-    public partial class CRUDWindow : Window
+    public partial class CRUDBrandWindow : Window
     {
-        public CRUDWindow()
+        public CRUDBrandWindow()
         {
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            CRUDSectionWindow crudSectionWindow = new CRUDSectionWindow();
-            crudSectionWindow.Show();
+            BrandAddWindow brandAddWindow = new BrandAddWindow();
+            brandAddWindow.Show();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_Click1(object sender, RoutedEventArgs e)
         {
-            CRUDBrandWindow cbw = new CRUDBrandWindow();
-            cbw.Show();
+            BrandEditWindow brandEditWindow = new BrandEditWindow();
+            brandEditWindow.Show();
         }
     }
 }

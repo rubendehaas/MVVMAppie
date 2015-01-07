@@ -1,0 +1,12 @@
+﻿<Window x:Class="MVVMAppie.BrandAddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="BrandAddWindow" Height="302.759" Width="389.298"
+        DataContext="{Binding BrandManager, Source={StaticResource Locator}}" >
+    <Grid>
+        <Label Content="Creeër een nieuw merk" HorizontalAlignment="Left" Margin="114,26,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="BrandNameTB" HorizontalAlignment="Left" Height="23" Margin="114,106,0,0" TextWrapping="Wrap" Text="{Binding TextIn}" VerticalAlignment="Top" Width="149"/>
+        <Button Command="{Binding AddBrandCommand}"  x:Name="AddSectionBtn" Content="Creeër merk" HorizontalAlignment="Left" Margin="131,191,0,0" VerticalAlignment="Top" Width="110" Height="38"/>
+
+    </Grid>
+</Window>

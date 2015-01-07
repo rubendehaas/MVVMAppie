@@ -54,24 +54,27 @@ namespace MVVMAppie.ViewModel
 
         private void AddRecipe()
         {
-            Recipe recipe = database.RecipeRepository.GetAll().Where(r => r.Name == SelectedRecipe.Name).First();
-            foreach (BrandProduct brandProduct in recipe.BrandProducts)
+            if (this.SelectedRecipe != null)
             {
-                if (_shoppingList.ShoppingList.Where(s => s.Name == brandProduct.Product.Name && s.Brand == brandProduct.Brand.Name).Count() == 0)
+                Recipe recipe = database.RecipeRepository.GetAll().Where(r => r.Name == SelectedRecipe.Name).First();
+                foreach (BrandProduct brandProduct in recipe.BrandProducts)
                 {
-                    _shoppingList.AddShoppingListItem(new ShoppingListItemVM(new ShoppingListItem
+                    if (_shoppingList.ShoppingList.Where(s => s.Name == brandProduct.Product.Name && s.Brand == brandProduct.Brand.Name).Count() == 0)
                     {
-                        Amount = 1,
-                        BrandProduct = brandProduct
-                    }, _shoppingList));
-                }
-                else
-                {
-                    _shoppingList.IncreaseAmmount(brandProduct.Product, brandProduct.Brand);
+                        _shoppingList.AddShoppingListItem(new ShoppingListItemVM(new ShoppingListItem
+                        {
+                            Amount = 1,
+                            BrandProduct = brandProduct
+                        }, _shoppingList));
+                    }
+                    else
+                    {
+                        _shoppingList.IncreaseAmmount(brandProduct.Product, brandProduct.Brand);
+                    }
                 }
             }
 
-            
+
         }
 
 

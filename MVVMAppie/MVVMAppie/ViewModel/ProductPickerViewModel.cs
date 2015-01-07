@@ -145,46 +145,22 @@ namespace MVVMAppie.ViewModel
 
         private void AddProduct()
         {
-            if (_shoppingList.ShoppingList.Where(s => s.Name == this.SelectedProduct.Name && s.Brand == this.SelectedBrand.Name).Count() == 0)
+            if (this.SelectedBrand != null && this.SelectedProduct != null)
             {
-                _shoppingList.AddShoppingListItem(new ShoppingListItemVM(new ShoppingListItem
+                if (_shoppingList.ShoppingList.Where(s => s.Name == this.SelectedProduct.Name && s.Brand == this.SelectedBrand.Name).Count() == 0)
                 {
-                    Amount = 1,
-                    BrandProduct = database.BrandProductRepository.GetBySelection(this.SelectedBrand.GetBrand(), this.SelectedProduct.GetProduct())
-                }, _shoppingList));
-            }
-            else
-            {
-                _shoppingList.IncreaseAmmount(this.SelectedProduct.GetProduct(), this.SelectedBrand.GetBrand());
+                    _shoppingList.AddShoppingListItem(new ShoppingListItemVM(new ShoppingListItem
+                    {
+                        Amount = 1,
+                        BrandProduct = database.BrandProductRepository.GetBySelection(this.SelectedBrand.GetBrand(), this.SelectedProduct.GetProduct())
+                    }, _shoppingList));
+                }
+                else
+                {
+                    _shoppingList.IncreaseAmmount(this.SelectedProduct.GetProduct(), this.SelectedBrand.GetBrand());
+                }
             }
         }
-
-        //private void LoadProducts(){
-        //    this.SelectedBrand = null;
-        //    this.SelectedProduct = null;
-        //    List<Product> products = database.ProductRepository.GetAll().Where(p => p.Section.Name == SelectedSection.Name).ToList();
-        //    List<ProductVM> productVM = products.Select(s => new ProductVM(s)).ToList();
-        //    Products = new ObservableCollection<ProductVM>(productVM);
-        //    RaisePropertyChanged("Products");
-        //}
-
-        //private void LoadBrands()
-        //{
-        //    this.SelectedBrand = null;
-        //    if (this.SelectedProduct != null)
-        //    {
-        //        List<Brand> brands = this.SelectedProduct.GetProduct().Brands.ToList();
-        //        List<BrandVM> brandVM = brands.Select(s => new BrandVM(s)).ToList();
-        //        Brands = new ObservableCollection<BrandVM>(brandVM);
-        //        RaisePropertyChanged("Brands");
-        //    }
-        //    else
-        //    {
-        //        Brands = null;
-        //        RaisePropertyChanged("Brands");
-        //    }
-            
-        //}
 
         public ProductPickerViewModel(Database datab, ShoppingListVM shoppingList, SectionsVM sections, ProductsVM products, BrandsVM brands)
         {
