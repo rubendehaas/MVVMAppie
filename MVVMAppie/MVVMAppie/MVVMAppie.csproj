@@ -104,6 +104,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CRUDProductWindow.xaml.cs">
+      <DependentUpon>CRUDProductWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CRUDSectionWindow.xaml.cs">
       <DependentUpon>CRUDSectionWindow.xaml</DependentUpon>
     </Compile>
@@ -174,6 +177,10 @@
     <Compile Include="ProductWindow.xaml.cs">
       <DependentUpon>ProductWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="CRUDProductWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CRUDSectionWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
