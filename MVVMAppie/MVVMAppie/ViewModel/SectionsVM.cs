@@ -29,7 +29,7 @@ namespace MVVMAppie.ViewModel
         }
 
 
-        public void addSectionCommand(string TextIn)
+        public void AddSectionCommand(string TextIn)
         {
             //Create a new section
             Section section = new Section
@@ -47,7 +47,7 @@ namespace MVVMAppie.ViewModel
             RaisePropertyChanged("Sections");
         }
 
-        public void deleteSectionCommand(Section section)
+        public void DeleteSectionCommand(Section section)
         {
 
             this.database.SectionRepository.Delete(section);

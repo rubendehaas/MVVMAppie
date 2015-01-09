@@ -15,19 +15,13 @@ using System.Windows.Shapes;
 namespace MVVMAppie
 {
     /// <summary>
-    /// Interaction logic for CRUDProductWindow.xaml
+    /// Interaction logic for ProductAddWindow.xaml
     /// </summary>
-    public partial class CRUDProductWindow : Window
+    public partial class ProductAddWindow : Window
     {
-        public CRUDProductWindow()
+        public ProductAddWindow()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            ProductAddWindow paw = new ProductAddWindow();
-            paw.Show();
         }
     }
 }

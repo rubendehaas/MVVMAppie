@@ -69,14 +69,14 @@ namespace MVVMAppie.ViewModel
         private void Add()
         {
             //zegt tegen het sections viewmodel dat er een section moet worden aangemaakt.
-            _sections.addSectionCommand(TextIn);
+            _sections.AddSectionCommand(TextIn);
             TextIn = "";
         }
 
         private void Delete()
         {
             if(_selectedSection != null){
-                _sections.deleteSectionCommand(_selectedSection.GetSection());
+                _sections.DeleteSectionCommand(_selectedSection.GetSection());
             }
         }
 

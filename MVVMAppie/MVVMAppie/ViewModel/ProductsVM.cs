@@ -18,7 +18,6 @@ namespace MVVMAppie.ViewModel
         {
             get
             {
-                //geef een observable collection (soort list) terug van _products
                 return new ObservableCollection<ProductVM>(this._products.Select(c => new ProductVM(c)).ToList());
             }
         }
@@ -31,7 +30,27 @@ namespace MVVMAppie.ViewModel
 
         public void AddProductCommand(string TextIn)
         {
-            throw new NotImplementedException();
+            Product product = new Product
+            {
+                Name = TextIn
+            };
+
+            this.database.ProductRepository.Create(product);
+            this.database.Save();
+
+            this._products = this.database.ProductRepository.GetAll().ToList();
+
+            RaisePropertyChanged("Products");
+        }
+
+        public void DeleteProductCommand(Product product)
+        {
+
+            this.database.ProductRepository.Delete(product);
+            this.database.Save();
+
+            this._products = this.database.ProductRepository.GetAll().ToList();
+            RaisePropertyChanged("Products");
         }
 
         public ObservableCollection<ProductVM> GetPickerProducts(Section section)

@@ -160,6 +160,9 @@
     <Compile Include="BrandAddWindow.xaml.cs">
       <DependentUpon>BrandAddWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ProductAddWindow.xaml.cs">
+      <DependentUpon>ProductAddWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SectionAddWindow.xaml.cs">
       <DependentUpon>SectionAddWindow.xaml</DependentUpon>
     </Compile>
@@ -171,6 +174,7 @@
     <Compile Include="ViewModel\BrandsVM.cs" />
     <Compile Include="ViewModel\CouponManageViewModel.cs" />
     <Compile Include="ViewModel\CouponVM.cs" />
+    <Compile Include="ViewModel\ProductManageViewModel.cs" />
     <Compile Include="ViewModel\ProductsVM.cs" />
     <Compile Include="ViewModel\RecipePickerViewModel.cs" />
     <Compile Include="ViewModel\RecipeVM.cs" />
@@ -226,6 +230,10 @@
     <Page Include="BrandAddWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ProductAddWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SectionAddWindow.xaml">
       <SubType>Designer</SubType>
