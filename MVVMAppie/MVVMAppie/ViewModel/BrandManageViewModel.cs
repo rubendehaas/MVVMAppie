@@ -56,6 +56,7 @@ namespace MVVMAppie.ViewModel
 
         public RelayCommand AddBrandCommand { get; set; }
         public RelayCommand DeleteBrandCommand { get; set; }
+        public RelayCommand EditBrandCommand { get; set; }
 
         private void Add()
         {
