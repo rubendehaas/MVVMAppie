@@ -28,19 +28,18 @@ namespace MVVMAppie.ViewModel
         }
 
 
-        public void AddProductCommand(string TextIn)
+        public void AddProductCommand(string TextIn, Section section)
         {
             Product product = new Product
             {
-                Name = TextIn
+                Name = TextIn,
+                Section = section
             };
 
             this.database.ProductRepository.Create(product);
             this.database.Save();
 
             this._products = this.database.ProductRepository.GetAll().ToList();
-
-            RaisePropertyChanged("Products");
         }
 
         public void DeleteProductCommand(Product product)
@@ -50,7 +49,6 @@ namespace MVVMAppie.ViewModel
             this.database.Save();
 
             this._products = this.database.ProductRepository.GetAll().ToList();
-            RaisePropertyChanged("Products");
         }
 
         public ObservableCollection<ProductVM> GetPickerProducts(Section section)

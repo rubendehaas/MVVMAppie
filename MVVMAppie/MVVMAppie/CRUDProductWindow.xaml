@@ -7,7 +7,7 @@
         <DataGrid ItemsSource="{Binding PickerProducts}" SelectedItem="{Binding SelectedProduct}" ColumnWidth="*" HorizontalAlignment="Left" Margin="10,59,0,0" VerticalAlignment="Top" Height="316" Width="301"/>
         <Button Content="Voeg Product toe" HorizontalAlignment="Left" Margin="10,393,0,0" VerticalAlignment="Top" Width="110" Height="38" Click="Button_Click"/>
         <Button Command="{Binding DeleteProductCommand}" Content="Verwijder Product" HorizontalAlignment="Left" Margin="202,393,0,0" VerticalAlignment="Top" Width="110" Height="38"/>
-        <ComboBox ItemsSource="{Binding Sections.Sections}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedSection}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="302" Height="30"/>
+        <ComboBox ItemsSource="{Binding Sections.Sections}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedSection, Mode=TwoWay}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="302" Height="30"/>
 
     </Grid>
 </Window>

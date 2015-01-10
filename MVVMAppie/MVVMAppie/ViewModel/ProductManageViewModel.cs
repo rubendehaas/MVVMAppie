@@ -77,10 +77,18 @@ namespace MVVMAppie.ViewModel
 
             set
             {
-                _selectedSection = value;
-                GetProductsOfSection(_selectedSection.GetSection());
-                RaisePropertyChanged("PickerProducts");
-                RaisePropertyChanged("SelectedSection");
+                
+                    _selectedSection = value;
+
+                    if (_selectedSection != null)
+                    { 
+                        GetProductsOfSection(_selectedSection.GetSection());
+                    }   
+
+                    RaisePropertyChanged("SelectedSection");
+                    RaisePropertyChanged("PickerProducts");
+                
+
             }
         }
 
@@ -108,14 +116,18 @@ namespace MVVMAppie.ViewModel
 
         private void Add()
         {
-            _products.AddProductCommand(TextIn);
+            _products.AddProductCommand(TextIn, _selectedSection.GetSection());
             TextIn = "";
+
+            RaisePropertyChanged("PickerProducts");
         }
 
         private void Delete()
         {
             if(_selectedProduct != null){
                 _products.DeleteProductCommand(_selectedProduct.GetProduct());
+
+                RaisePropertyChanged("PickerProducts");
             }
         }
 
