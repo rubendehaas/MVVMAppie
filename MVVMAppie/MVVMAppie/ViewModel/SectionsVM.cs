@@ -28,7 +28,6 @@ namespace MVVMAppie.ViewModel
             this._sections = datab.SectionRepository.GetAll().ToList();
         }
 
-
         public void AddSectionCommand(string TextIn)
         {
             //Create a new section

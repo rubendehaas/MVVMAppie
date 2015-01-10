@@ -63,7 +63,19 @@ namespace MVVMAppie.ViewModel
             {
                 return null;
             }
-            
+        }
+
+        public ObservableCollection<ProductVM> GetPickerProducts2(Section section)
+        {
+            if (section.Products != null)
+            {
+
+                return new ObservableCollection<ProductVM>(section.Products.Select(c => new ProductVM(c)).Where(d => d.GetProduct().Section.SectionId == section.SectionId).ToList());
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }
