@@ -21,6 +21,7 @@ namespace MVVMAppie.ViewModel
         private SectionVM _selectedSection;
         
         private string _textIn;
+        private string _textEdit;
 
         public ProductsVM Products
         {
@@ -52,19 +53,32 @@ namespace MVVMAppie.ViewModel
             }
         }
 
+        public String TextEdit
+        {
+            get
+            {
+                return _textEdit;
+            }
+
+            set
+            {
+                _textEdit = value;
+                RaisePropertyChanged("TextEdit");
+            }
+        }
+
         public ObservableCollection<ProductVM> PickerProducts
         {
             get
             {
                 if (SelectedSection != null)
                 {
-                    return _products.GetPickerProducts2(SelectedSection.GetSection());
+                    return _products.GetPickerProducts(SelectedSection.GetSection());
                 }
                 else
                 {
                     return null;
                 }
-
             }
         }
 
@@ -77,18 +91,15 @@ namespace MVVMAppie.ViewModel
 
             set
             {
-                
-                    _selectedSection = value;
+                _selectedSection = value;
 
-                    if (_selectedSection != null)
-                    { 
-                        GetProductsOfSection(_selectedSection.GetSection());
-                    }   
+                if (_selectedSection != null)
+                { 
+                    GetProductsOfSection(_selectedSection.GetSection());
+                }   
 
-                    RaisePropertyChanged("SelectedSection");
-                    RaisePropertyChanged("PickerProducts");
-                
-
+                RaisePropertyChanged("SelectedSection");
+                RaisePropertyChanged("PickerProducts");
             }
         }
 
@@ -102,16 +113,23 @@ namespace MVVMAppie.ViewModel
             set
             {
                 _selectedProduct = value;
+                if(_selectedProduct != null)
+                {
+                    TextEdit = _selectedProduct.Name;
+                }
+
                 RaisePropertyChanged("SelectedProduct");
             }
         }
 
         public void GetProductsOfSection(Section section)
         {
-            Products.GetPickerProducts2(section);
+            //TODO CHECK IF NORMAL PICKER WORKS
+            Products.GetPickerProducts(section);
         }
 
         public RelayCommand AddProductCommand { get; set; }
+        public RelayCommand EditProductCommand { get; set; }
         public RelayCommand DeleteProductCommand { get; set; }
 
         private void Add()
@@ -122,9 +140,19 @@ namespace MVVMAppie.ViewModel
             RaisePropertyChanged("PickerProducts");
         }
 
+        private void Edit()
+        {
+            if (_selectedProduct != null)
+            {
+                _products.EditProductCommand(TextEdit, _selectedProduct.GetProduct());
+                RaisePropertyChanged("PickerProducts");
+            }
+        }
+
         private void Delete()
         {
-            if(_selectedProduct != null){
+            if(_selectedProduct != null)
+            {
                 _products.DeleteProductCommand(_selectedProduct.GetProduct());
 
                 RaisePropertyChanged("PickerProducts");
@@ -136,8 +164,9 @@ namespace MVVMAppie.ViewModel
             this.datab = datab;
             this._products = Products;
             this._sections = Sections;
-            this.DeleteProductCommand = new RelayCommand(Delete);
             this.AddProductCommand = new RelayCommand(Add);
+            this.EditProductCommand = new RelayCommand(Edit);
+            this.DeleteProductCommand = new RelayCommand(Delete);
         }
     }
 }

@@ -29,5 +29,11 @@ namespace MVVMAppie
             ProductAddWindow paw = new ProductAddWindow();
             paw.Show();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            ProductEditWindow pew = new ProductEditWindow();
+            pew.Show();
+        }
     }
 }

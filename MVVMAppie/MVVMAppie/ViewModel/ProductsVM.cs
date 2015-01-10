@@ -42,6 +42,16 @@ namespace MVVMAppie.ViewModel
             this._products = this.database.ProductRepository.GetAll().ToList();
         }
 
+        public void EditProductCommand(string TextEdit, Product product)
+        {
+            product.Name = TextEdit;
+
+            this.database.ProductRepository.Update(product);
+            this.database.Save();
+
+            this._products = this.database.ProductRepository.GetAll().ToList();
+        }
+
         public void DeleteProductCommand(Product product)
         {
 
@@ -56,19 +66,6 @@ namespace MVVMAppie.ViewModel
             if (section.Products != null)
             {
                 return new ObservableCollection<ProductVM>(section.Products.Select(c => new ProductVM(c)).ToList());
-            }
-            else
-            {
-                return null;
-            }
-        }
-
-        public ObservableCollection<ProductVM> GetPickerProducts2(Section section)
-        {
-            if (section.Products != null)
-            {
-
-                return new ObservableCollection<ProductVM>(section.Products.Select(c => new ProductVM(c)).Where(d => d.GetProduct().Section.SectionId == section.SectionId).ToList());
             }
             else
             {
