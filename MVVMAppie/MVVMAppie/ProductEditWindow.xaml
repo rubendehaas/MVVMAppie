@@ -6,7 +6,7 @@
     <Grid>
         <Label Content="Bewerk product" HorizontalAlignment="Left" Margin="73,35,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="BrandNameTB" HorizontalAlignment="Left" Height="23" Margin="72,114,0,0" TextWrapping="Wrap" Text="{Binding TextEdit}" VerticalAlignment="Top" Width="149"/>
-        <Button Command="{Binding EditProductCommand}"  x:Name="AddSectionBtn" Content="Creeër product" HorizontalAlignment="Left" Margin="90,200,0,0" VerticalAlignment="Top" Width="110" Height="38"/>
+        <Button Command="{Binding EditProductCommand}"  x:Name="AddSectionBtn" Content="Bewerk product" HorizontalAlignment="Left" Margin="90,200,0,0" VerticalAlignment="Top" Width="110" Height="38" Click="AddSectionBtn_Click"/>
 
     </Grid>
 </Window>

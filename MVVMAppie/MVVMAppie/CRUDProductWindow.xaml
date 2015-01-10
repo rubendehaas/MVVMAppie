@@ -5,10 +5,10 @@
         DataContext="{Binding ProductManager, Source={StaticResource Locator}}">
     <Grid>
         <DataGrid ItemsSource="{Binding PickerProducts}" SelectedItem="{Binding SelectedProduct}" ColumnWidth="*" HorizontalAlignment="Left" Margin="10,59,0,0" VerticalAlignment="Top" Height="316" Width="301"/>
-        <Button Content="Add" HorizontalAlignment="Left" Margin="10,393,0,0" VerticalAlignment="Top" Width="66" Height="38" Click="Button_Click"/>
-        <Button Command="{Binding DeleteProductCommand}" Content="Delete" HorizontalAlignment="Left" Margin="242,393,0,0" VerticalAlignment="Top" Width="70" Height="38"/>
+        <Button Content="Add" HorizontalAlignment="Left" Margin="10,393,0,0" VerticalAlignment="Top" Width="66" Height="38" Click="Button_Click" IsEnabled="{Binding SectionPickStatus}"/>
+        <Button Command="{Binding DeleteProductCommand}" Content="Delete" HorizontalAlignment="Left" Margin="242,393,0,0" VerticalAlignment="Top" Width="70" Height="38" IsEnabled="{Binding ProductPickStatus}"/>
         <ComboBox ItemsSource="{Binding Sections.Sections}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedSection, Mode=TwoWay}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="302" Height="30"/>
-        <Button Content="Edit" HorizontalAlignment="Left" Margin="126,393,0,0" VerticalAlignment="Top" Width="66" Height="38" Click="Button_Click_1"/>
+        <Button Content="Edit" HorizontalAlignment="Left" Margin="126,393,0,0" VerticalAlignment="Top" Width="66" Height="38" Click="Button_Click_1" IsEnabled="{Binding ProductPickStatus}"/>
 
     </Grid>
 </Window>

@@ -23,5 +23,10 @@ namespace MVVMAppie
         {
             InitializeComponent();
         }
+
+        private void AddSectionBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

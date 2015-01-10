@@ -22,6 +22,8 @@ namespace MVVMAppie.ViewModel
         
         private string _textIn;
         private string _textEdit;
+        private bool _sectionPickStatus;
+        private bool _productPickStatus;
 
         public ProductsVM Products
         {
@@ -67,6 +69,32 @@ namespace MVVMAppie.ViewModel
             }
         }
 
+        public Boolean ProductPickStatus
+        {
+            get
+            {
+                return _productPickStatus;
+            }
+            set
+            {
+                _productPickStatus = value;
+                RaisePropertyChanged("ProductPickStatus");
+            }
+        }
+
+        public Boolean SectionPickStatus
+        {
+            get
+            {
+                return _sectionPickStatus;
+            }
+            set
+            {
+                _sectionPickStatus = value;
+                RaisePropertyChanged("SectionPickStatus");
+            }
+        }
+
         public ObservableCollection<ProductVM> PickerProducts
         {
             get
@@ -94,9 +122,14 @@ namespace MVVMAppie.ViewModel
                 _selectedSection = value;
 
                 if (_selectedSection != null)
-                { 
+                {
+                    SectionPickStatus = true;
                     GetProductsOfSection(_selectedSection.GetSection());
-                }   
+                }
+                else
+                {
+                    SectionPickStatus = false;
+                }
 
                 RaisePropertyChanged("SelectedSection");
                 RaisePropertyChanged("PickerProducts");
@@ -115,7 +148,13 @@ namespace MVVMAppie.ViewModel
                 _selectedProduct = value;
                 if(_selectedProduct != null)
                 {
+                    ProductPickStatus = true;
                     TextEdit = _selectedProduct.Name;
+                }
+                else
+                {
+                    ProductPickStatus = false;
+
                 }
 
                 RaisePropertyChanged("SelectedProduct");
