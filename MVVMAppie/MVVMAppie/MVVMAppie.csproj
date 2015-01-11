@@ -166,6 +166,9 @@
     <Compile Include="ProductEditWindow.xaml.cs">
       <DependentUpon>ProductEditWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BrandConnectWindow.xaml.cs">
+      <DependentUpon>BrandConnectWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SectionAddWindow.xaml.cs">
       <DependentUpon>SectionAddWindow.xaml</DependentUpon>
     </Compile>
@@ -173,6 +176,7 @@
     <Compile Include="RecipeWindow.xaml.cs">
       <DependentUpon>RecipeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\BrandConnectViewModel.cs" />
     <Compile Include="ViewModel\BrandManageViewModel.cs" />
     <Compile Include="ViewModel\BrandsVM.cs" />
     <Compile Include="ViewModel\CouponManageViewModel.cs" />
@@ -241,6 +245,10 @@
     <Page Include="ProductEditWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BrandConnectWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="SectionAddWindow.xaml">
       <SubType>Designer</SubType>
@@ -330,6 +338,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

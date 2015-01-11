@@ -35,5 +35,11 @@ namespace MVVMAppie
             BrandEditWindow brandEditWindow = new BrandEditWindow();
             brandEditWindow.Show();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            BrandConnectWindow brandConnectWindow = new BrandConnectWindow();
+            brandConnectWindow.Show();
+        }
     }
 }

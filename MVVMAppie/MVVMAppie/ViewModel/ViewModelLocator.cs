@@ -56,6 +56,7 @@ namespace MVVMAppie.ViewModel
             SimpleIoc.Default.Register<SectionManageViewModel>();
             SimpleIoc.Default.Register<ProductManageViewModel>();
             SimpleIoc.Default.Register<BrandManageViewModel>();
+            SimpleIoc.Default.Register<BrandConnectViewModel>();
         }
 
         public MainViewModel Main
@@ -112,6 +113,14 @@ namespace MVVMAppie.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<BrandManageViewModel>();
+            }
+        }
+
+        public BrandConnectViewModel BrandConnector
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<BrandConnectViewModel>();
             }
         }
         

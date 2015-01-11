@@ -39,7 +39,7 @@ namespace MVVMAppie
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            ProductWindow productWindow = new ProductWindow();
+            BrandConnectWindow productWindow = new BrandConnectWindow();
             productWindow.Show();
         }
 
