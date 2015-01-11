@@ -56,7 +56,22 @@ namespace MVVMAppie.ViewModel
             }
         }
 
-        public ObservableCollection<BrandVM> PickerBrands
+        public ObservableCollection<BrandVM> UnselectedBrands
+        {
+            get
+            {
+                if (SelectedProduct != null && SelectedSection != null)
+                {
+                    return _brandsCollection.GetUnbindedBrands(SelectedProduct.GetProduct());
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
+        public ObservableCollection<BrandVM> SelectedBrands
         {
             get
             {
@@ -68,7 +83,6 @@ namespace MVVMAppie.ViewModel
                 {
                     return null;
                 }
-
             }
         }
 
@@ -80,7 +94,8 @@ namespace MVVMAppie.ViewModel
 
         private SectionVM _selectedSection;
         private ProductVM _selectedProduct;
-        private BrandVM _selectedBrand;
+        private BrandVM _selectedUnselectedBrand;
+        private BrandVM _selectedSelectedBrand;
 
         public SectionVM SelectedSection
         {
@@ -108,45 +123,108 @@ namespace MVVMAppie.ViewModel
             {
                 _selectedProduct = value;
                 RaisePropertyChanged("SelectedProduct");
-                RaisePropertyChanged("PickerBrands");
+                RaisePropertyChanged("UnselectedBrands");
+                RaisePropertyChanged("SelectedBrands");
             }
         }
 
-        public BrandVM SelectedBrand
+        public BrandVM SelectedUnselectedBrand
         {
             get
             {
-                return _selectedBrand;
+                return _selectedUnselectedBrand;
             }
 
             set
             {
-                _selectedBrand = value;
-                RaisePropertyChanged("SelectedBrand");
+                _selectedUnselectedBrand = value;
+                RaisePropertyChanged("SelectedUnselectedBrand");
             }
         }
-        private RelayCommand addProductCommand;
 
-        public RelayCommand AddProductCommand
+        public BrandVM SelectedSelectedBrand
         {
             get
             {
-                if (addProductCommand == null)
+                return _selectedSelectedBrand;
+            }
+
+            set
+            {
+                _selectedSelectedBrand = value;
+                RaisePropertyChanged("SelectedSelectedBrand");
+            }
+        }
+        private RelayCommand addBrandCommand;
+        private RelayCommand removeBrandCommand;
+
+        public RelayCommand AddBrandCommand
+        {
+            get
+            {
+                if (addBrandCommand == null)
                 {
-                    addProductCommand = new RelayCommand(() =>
+                    addBrandCommand = new RelayCommand(() =>
                     {
-                        this.AddProduct();
+                        this.AddBrand();
                     });
                 }
-                return addProductCommand;
+                return addBrandCommand;
             }
         }
 
-        private void AddProduct()
+        public RelayCommand RemoveBrandCommand
         {
-            if (this.SelectedBrand != null && this.SelectedProduct != null)
+            get
             {
-               
+                if (removeBrandCommand == null)
+                {
+                    removeBrandCommand = new RelayCommand(() =>
+                    {
+                        this.RemoveBrand();
+                    });
+                }
+                return removeBrandCommand;
+            }
+        }
+
+        private string _textIn;
+
+        public String TextIn
+        {
+            get
+            {
+                return _textIn;
+                ;
+            }
+
+            set
+            {
+                _textIn = value;
+                RaisePropertyChanged("TextIn");
+            }
+        }
+
+        private void AddBrand()
+        {
+            if (this.SelectedUnselectedBrand != null && this.SelectedProduct != null)
+            {
+                this.BrandsCollection.BindProduct(this.SelectedUnselectedBrand.GetBrand(), this.SelectedProduct.GetProduct(), Convert.ToDouble(TextIn));
+                this.SelectedUnselectedBrand = null;
+                this.TextIn = "";
+                this.RaisePropertyChanged("SelectedBrands");
+                this.RaisePropertyChanged("UnselectedBrands");
+            }
+        }
+
+        private void RemoveBrand()
+        {
+            if (this.SelectedSelectedBrand != null && this.SelectedProduct != null)
+            {
+                this.BrandsCollection.UnbindProduct(this.SelectedSelectedBrand.GetBrand(), this.SelectedProduct.GetProduct());
+                this.SelectedSelectedBrand = null;
+                this.RaisePropertyChanged("SelectedBrands");
+                this.RaisePropertyChanged("UnselectedBrands");
             }
         }
         public BrandConnectViewModel(Database datab, SectionsVM sections, ProductsVM products, BrandsVM brands)

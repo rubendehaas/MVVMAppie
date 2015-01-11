@@ -29,5 +29,6 @@ namespace MVVMAppie.ViewModel
         {
             return _product;
         }
+        
     }
 }

@@ -41,6 +41,28 @@ namespace MVVMAppie.ViewModel
             RaisePropertyChanged("Brands");
         }
 
+        public void BindProduct(Brand brand, Product product, double price)
+        {
+            BrandProduct brandProduct = new BrandProduct
+            {
+                Brand = brand,
+                Product = product,
+                Price = price
+            };
+           product.Brands.Add(brand);
+           this.database.ProductRepository.Update(product);
+           this.database.BrandProductRepository.Create(brandProduct);
+           this.database.Save();
+
+        }
+
+        public void UnbindProduct(Brand brand, Product product)
+        {
+            product.Brands.Remove(brand);
+            this.database.ProductRepository.Update(product);
+            this.database.Save();
+        }
+
         public ObservableCollection<BrandVM> GetPickerBrands(Product product)
         {
             if (product.Brands != null)
@@ -54,6 +76,11 @@ namespace MVVMAppie.ViewModel
 
         }
 
+        public ObservableCollection<BrandVM> GetUnbindedBrands(Product product)
+        {
+            return new ObservableCollection<BrandVM>(database.BrandRepository.GetAll().Except(product.Brands).Select(c => new BrandVM(c)).ToList());
+        }
+
         public void DeleteBrand(Brand brand)
         {
             this.database.BrandRepository.Delete(brand);
@@ -62,5 +89,7 @@ namespace MVVMAppie.ViewModel
             this._brands = this.database.BrandRepository.GetAll().ToList();
             RaisePropertyChanged("Brands");
         }
+
+        
     }
 }
