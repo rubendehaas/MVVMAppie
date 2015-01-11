@@ -28,13 +28,19 @@ namespace MVVMAppie.Model
                 double x = 0;
                 foreach (Coupon coupon in Coupons)
                 {
-                    foreach (BrandProduct product in coupon.BrandProduct)
+                    if (coupon.BrandProduct.Count > 0)
                     {
-                        foreach (ShoppingListItem item in ShoppingListItems)
+                        foreach (BrandProduct product in coupon.BrandProduct)
                         {
-                            if (item.BrandProduct.Equals(product))
+                            if (ShoppingListItems.Count > 0)
                             {
-                                x = x + (item.Amount * coupon.Amount);
+                                foreach (ShoppingListItem item in ShoppingListItems)
+                                {
+                                    if (item.BrandProduct.Equals(product))
+                                    {
+                                        x = x + (item.Amount * coupon.Amount);
+                                    }
+                                }
                             }
                         }
                     }

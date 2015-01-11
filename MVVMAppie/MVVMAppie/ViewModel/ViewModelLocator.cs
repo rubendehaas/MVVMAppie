@@ -46,6 +46,7 @@ namespace MVVMAppie.ViewModel
             SimpleIoc.Default.Register<ShoppingListVM>();
             SimpleIoc.Default.Register<SectionsVM>();
             SimpleIoc.Default.Register<ProductsVM>();
+            SimpleIoc.Default.Register<BrandProductsVM>();
             SimpleIoc.Default.Register<BrandsVM>();
             SimpleIoc.Default.Register<CouponsVM>();
             SimpleIoc.Default.Register<MainViewModel>();

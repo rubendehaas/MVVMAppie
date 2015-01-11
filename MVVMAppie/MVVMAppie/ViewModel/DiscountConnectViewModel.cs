@@ -15,15 +15,12 @@ namespace MVVMAppie.ViewModel
 
         private Database database;
         private CouponsVM _coupons;
-        private ProductsVM _productsCollection;
-        private BrandsVM _brandsCollection;
-        private ProductVM _selectedProduct;
+        private BrandProductsVM _productsCollection;
         private CouponVM _selectedCoupon;
-        private ProductVM _selectedUnselectedProduct;
-        private ProductVM _selectedSelectedProduct;
-        private RelayCommand addBrandCommand;
-        private RelayCommand removeBrandCommand;
-        private string _textIn;
+        private BrandProductVM _selectedUnselectedProduct;
+        private BrandProductVM _selectedSelectedProduct;
+        private RelayCommand addDiscountCommand;
+        private RelayCommand removeDiscountCommand;
 
 
         public CouponsVM Coupons
@@ -34,11 +31,41 @@ namespace MVVMAppie.ViewModel
             }
         }
 
-        public ProductsVM ProductsCollection
+        public BrandProductsVM ProductsCollection
         {
             get
             {
                 return _productsCollection;
+            }
+        }
+
+        public ObservableCollection<BrandProductVM> UnselectedProducts
+        {
+            get
+            {
+                if (this.SelectedCoupon != null)
+                {
+                    return ProductsCollection.GetUnbindedBrandProducts(this.SelectedCoupon.GetCoupon());
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
+        public ObservableCollection<BrandProductVM> SelectedProducts
+        {
+            get
+            {
+                if (this.SelectedCoupon != null)
+                {
+                    return ProductsCollection.GetBindedBrandProducts(this.SelectedCoupon.GetCoupon());
+                }
+                else
+                {
+                    return null;
+                }
             }
         }
 
@@ -53,26 +80,12 @@ namespace MVVMAppie.ViewModel
             {
                 _selectedCoupon = value;
                 RaisePropertyChanged("SelectedCoupon");
+                RaisePropertyChanged("SelectedProducts");
+                RaisePropertyChanged("UnselectedProducts");
             }
         }
 
-        public ProductVM SelectedProduct
-        {
-            get
-            {
-                return _selectedProduct;
-            }
-
-            set
-            {
-                _selectedProduct = value;
-                RaisePropertyChanged("SelectedProduct");
-                RaisePropertyChanged("SelectedUnSelectedProduct");
-                RaisePropertyChanged("SelectedSelectedProduct");
-            }
-        }
-
-        public ProductVM SelectedUnSelectedProduct
+        public BrandProductVM SelectedUnSelectedProduct
         {
             get
             {
@@ -88,7 +101,7 @@ namespace MVVMAppie.ViewModel
             }
         }
 
-        public ProductVM SelectedSelectedProduct
+        public BrandProductVM SelectedSelectedProduct
         {
             get
             {
@@ -104,10 +117,63 @@ namespace MVVMAppie.ViewModel
             }
         }
 
-        public DiscountConnectViewModel(Database datab, CouponsVM Coupons)
+        public RelayCommand AddDiscountCommand
+        {
+            get
+            {
+                if (addDiscountCommand == null)
+                {
+                    addDiscountCommand = new RelayCommand(() =>
+                    {
+                        this.AddDiscount();
+                    });
+                }
+                return addDiscountCommand;
+            }
+        }
+
+        private void AddDiscount()
+        {
+            if (this.SelectedUnSelectedProduct != null && this.SelectedCoupon != null)
+            {
+                this.ProductsCollection.BindProduct(this.SelectedUnSelectedProduct.GetProduct(), this.SelectedCoupon.GetCoupon());
+                this.SelectedUnSelectedProduct = null;
+                this.RaisePropertyChanged("SelectedProducts");
+                this.RaisePropertyChanged("UnselectedProducts");
+            }
+        }
+
+        public RelayCommand RemoveDiscountCommand
+        {
+            get
+            {
+                if (removeDiscountCommand == null)
+                {
+                    removeDiscountCommand = new RelayCommand(() =>
+                    {
+                        this.RemoveDiscount();
+                    });
+                }
+                return removeDiscountCommand;
+            }
+        }
+
+        private void RemoveDiscount()
+        {
+            if (this.SelectedSelectedProduct != null && this.SelectedCoupon != null)
+            {
+                this.ProductsCollection.UnbindProduct(this.SelectedUnSelectedProduct.GetProduct(), this.SelectedCoupon.GetCoupon());
+                this.SelectedUnSelectedProduct = null;
+                this.RaisePropertyChanged("SelectedProducts");
+                this.RaisePropertyChanged("UnselectedProducts");
+            }
+        }
+
+        public DiscountConnectViewModel(Database datab, CouponsVM Coupons, BrandProductsVM products)
         {
             this.database = datab;
             this._coupons = Coupons;
+            this._productsCollection = products;
         }
 
     }

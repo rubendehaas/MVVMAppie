@@ -8,11 +8,11 @@
             <ColumnDefinition Width="147*"/>
             <ColumnDefinition Width="176*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid ItemsSource="{Binding ProductsCollection}" SelectedItem="{Binding SelectedUnselectedProducts}" ColumnWidth="*" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Height="150" Width="301" Grid.ColumnSpan="2"/>
-        <DataGrid ItemsSource="{Binding SelectedProducts}" SelectedItem="{Binding SelectedSelectedproducts}" ColumnWidth="*" HorizontalAlignment="Left" Margin="12,325,0,0" VerticalAlignment="Top" Height="138" Width="301" Grid.ColumnSpan="2"/>
-        <ComboBox ItemsSource="{Binding Coupons.Coupons}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedDiscount, Mode=TwoWay}" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="302" Height="30" Grid.ColumnSpan="2"/>
-        <Button Content="^^" Command="{Binding RemoveProductCommand}" HorizontalAlignment="Left" Margin="13,265,0,0" VerticalAlignment="Top" Width="66" Height="38"/>
-        <Button Content="vv" Command="{Binding AddProductCommand}" HorizontalAlignment="Left" Margin="96,265,0,0" VerticalAlignment="Top" Width="66" Height="38" Grid.Column="1"/>
+        <DataGrid ItemsSource="{Binding UnselectedProducts}" SelectedItem="{Binding SelectedUnSelectedProduct}" ColumnWidth="*" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Height="150" Width="301" Grid.ColumnSpan="2"/>
+        <DataGrid ItemsSource="{Binding SelectedProducts}" SelectedItem="{Binding SelectedSelectedproduct}" ColumnWidth="*" HorizontalAlignment="Left" Margin="12,325,0,0" VerticalAlignment="Top" Height="138" Width="301" Grid.ColumnSpan="2"/>
+        <ComboBox ItemsSource="{Binding Coupons.Coupons}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedCoupon, Mode=TwoWay}" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="302" Height="30" Grid.ColumnSpan="2"/>
+        <Button Content="^^" Command="{Binding RemoveDiscountCommand}" HorizontalAlignment="Left" Margin="13,265,0,0" VerticalAlignment="Top" Width="66" Height="38"/>
+        <Button Content="vv" Command="{Binding AddDiscountCommand}" HorizontalAlignment="Left" Margin="96,265,0,0" VerticalAlignment="Top" Width="66" Height="38" Grid.Column="1"/>
         <Label Content="Bound Products" HorizontalAlignment="Left" Height="26" Margin="106,299,0,0" VerticalAlignment="Top" Width="132" Grid.ColumnSpan="2"/>
         <Label Content="Available Products" HorizontalAlignment="Left" Height="26" Margin="106,79,0,0" VerticalAlignment="Top" Width="132" Grid.ColumnSpan="2"/>
 

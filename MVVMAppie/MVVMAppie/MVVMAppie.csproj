@@ -197,6 +197,8 @@
     </Compile>
     <Compile Include="ViewModel\BrandConnectViewModel.cs" />
     <Compile Include="ViewModel\BrandManageViewModel.cs" />
+    <Compile Include="ViewModel\BrandProductsVM.cs" />
+    <Compile Include="ViewModel\BrandProductVM.cs" />
     <Compile Include="ViewModel\BrandsVM.cs" />
     <Compile Include="ViewModel\CouponManageViewModel.cs" />
     <Compile Include="ViewModel\CouponVM.cs" />
@@ -384,6 +386,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="appie-logo.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
