@@ -4,7 +4,7 @@
         Title="CrudDiscountWindow" Height="467.702" Width="331.408"
         DataContext="{Binding DiscountManager, Source={StaticResource Locator}}">
     <Grid>
-        <DataGrid ItemsSource="{Binding Discounts}" SelectedItem="{Binding SelectedDiscount}" ColumnWidth="*" HorizontalAlignment="Left" Margin="10,59,0,0" VerticalAlignment="Top" Height="316" Width="301"/>
+        <DataGrid ItemsSource="{Binding Coupons.Coupons}" SelectedItem="{Binding SelectedCoupon}" ColumnWidth="*" HorizontalAlignment="Left" Margin="10,59,0,0" VerticalAlignment="Top" Height="316" Width="301"/>
         <Button Content="Add" HorizontalAlignment="Left" Margin="10,393,0,0" VerticalAlignment="Top" Width="66" Height="38" Click="Button_Click"/>
         <Button Command="{Binding DeleteDiscountCommand}" Content="Delete" HorizontalAlignment="Left" Margin="242,393,0,0" VerticalAlignment="Top" Width="70" Height="38" IsEnabled="{Binding ProductPickStatus}"/>
         <Button Content="Edit" HorizontalAlignment="Left" Margin="81,393,0,0" VerticalAlignment="Top" Width="66" Height="38" Click="Button_Click_1"/>

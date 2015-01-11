@@ -47,6 +47,7 @@ namespace MVVMAppie.ViewModel
             SimpleIoc.Default.Register<SectionsVM>();
             SimpleIoc.Default.Register<ProductsVM>();
             SimpleIoc.Default.Register<BrandsVM>();
+            SimpleIoc.Default.Register<CouponsVM>();
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<ProductPickerViewModel>();
             SimpleIoc.Default.Register<RecipePickerViewModel>();
@@ -58,6 +59,7 @@ namespace MVVMAppie.ViewModel
             SimpleIoc.Default.Register<BrandManageViewModel>();
             SimpleIoc.Default.Register<BrandConnectViewModel>();
             SimpleIoc.Default.Register<DiscountManageViewModel>();
+            SimpleIoc.Default.Register<DiscountConnectViewModel>();
         }
 
         public MainViewModel Main
@@ -130,6 +132,14 @@ namespace MVVMAppie.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<DiscountManageViewModel>();
+            }
+        }
+
+        public DiscountConnectViewModel DiscountConnector
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<DiscountConnectViewModel>();
             }
         }
         

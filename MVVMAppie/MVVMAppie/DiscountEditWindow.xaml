@@ -5,13 +5,18 @@
         DataContext="{Binding DiscountManager, Source={StaticResource Locator}}" >
     <Grid>
         <Label Content="Bewerk korting" HorizontalAlignment="Left" Margin="73,35,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="DiscountNameTB" HorizontalAlignment="Left" Height="23" Margin="72,114,0,0" TextWrapping="Wrap" Text="{Binding TextEditName}" VerticalAlignment="Top" Width="149"/>
-		<TextBox x:Name="DiscountCodeTB" HorizontalAlignment="Left" Height="23" Margin="72,140,0,0" TextWrapping="Wrap" Text="{Binding TextEditCode}" VerticalAlignment="Top" Width="149"/>
-        <TextBox x:Name="PriceNameTB" HorizontalAlignment="Left" Height="23" Margin="72,170,0,0" TextWrapping="Wrap" Text="{Binding Price}" PreviewTextInput="NumberValidationTextBox" VerticalAlignment="Top" Width="71" Grid.Column="1"/>
-		<Button Command="{Binding EditDiscountCommand}"  x:Name="AddSectionBtn" Content="Bewerk korting" HorizontalAlignment="Left" Margin="90,200,0,0" VerticalAlignment="Top" Width="110" Height="38"/>
-        <Label Content="Name" HorizontalAlignment="Left" Margin="10,114,0,0" VerticalAlignment="Top"/>
-        <Label Content="Code" HorizontalAlignment="Left" Margin="10,137,0,0" VerticalAlignment="Top"/>
-        <Label Content="Price" HorizontalAlignment="Left" Margin="10,170,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="DiscountNameTB" HorizontalAlignment="Left" Height="23" Margin="72,67,0,0" TextWrapping="Wrap" Text="{Binding TextAddName}" VerticalAlignment="Top" Width="149"/>
+        <TextBox x:Name="DiscountCodeTB" HorizontalAlignment="Left" Height="23" Margin="72,93,0,0" TextWrapping="Wrap" Text="{Binding TextAddCode}" VerticalAlignment="Top" Width="149"/>
+        <TextBox x:Name="PriceNameTB" HorizontalAlignment="Left" Height="23" Margin="72,123,0,0" TextWrapping="Wrap" Text="{Binding Price}" PreviewTextInput="NumberValidationTextBox" VerticalAlignment="Top" Width="71"/>
+        <TextBox x:Name="DiscountStartDateTB" HorizontalAlignment="Left" Height="23" Margin="72,151,0,0" TextWrapping="Wrap" Text="{Binding TextAddStartDate}" VerticalAlignment="Top" Width="149"/>
+        <TextBox x:Name="DiscountEndDateTB" HorizontalAlignment="Left" Height="23" Margin="72,177,0,0" TextWrapping="Wrap" Text="{Binding TextAddEndDate}" VerticalAlignment="Top" Width="149"/>
+
+        <Button Command="{Binding EditDiscountCommand}"  x:Name="AddSectionBtn" Content="Bewerk korting" HorizontalAlignment="Left" Margin="91,222,0,0" VerticalAlignment="Top" Width="110" Height="38"/>
+        <Label Content="Name" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top"/>
+        <Label Content="Code" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top"/>
+        <Label Content="Price" HorizontalAlignment="Left" Margin="10,123,0,0" VerticalAlignment="Top"/>
+        <Label Content="Start date" HorizontalAlignment="Left" Margin="6,148,0,0" VerticalAlignment="Top"/>
+        <Label Content="End date" HorizontalAlignment="Left" Margin="6,171,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

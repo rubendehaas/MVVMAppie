@@ -24,6 +24,9 @@ namespace UnitTest
         [TestMethod]
         public void TestMethod2()
         {
+            var mockRepository = new MockRepository(MockBehavior.Loose);
+            var mockMessenger = mockRepository.Create<Database>();
+            var vm = new SectionsVM(mockMessenger.Object);
 
         }
     }

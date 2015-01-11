@@ -25,6 +25,11 @@ namespace MVVMAppie.ViewModel
             return this._coupon;
         }
 
+        public CouponVM(Coupon item)
+        {
+            this._coupon = item;
+        }
+
         public CouponVM(Coupon item, ShoppingListVM shoppingList)
         {
             this._coupon = item;
