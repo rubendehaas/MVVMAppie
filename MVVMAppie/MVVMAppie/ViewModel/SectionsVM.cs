@@ -55,5 +55,19 @@ namespace MVVMAppie.ViewModel
             this._sections = this.database.SectionRepository.GetAll().ToList();
             RaisePropertyChanged("Sections");
         }
+
+        public  void EditSectionCommand(Section section, string TextEdit)
+        {
+            section.Name = TextEdit;
+
+            //schrijf de section naar de db
+            this.database.SectionRepository.Update(section);
+            this.database.Save();
+
+            //update de sections list
+            this._sections = this.database.SectionRepository.GetAll().ToList();
+            //Roep dat de property sections is veranderd
+            RaisePropertyChanged("Sections");
+        }
     }
 }

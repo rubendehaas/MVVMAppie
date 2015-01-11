@@ -104,6 +104,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CRUDDiscountWindow.xaml.cs">
+      <DependentUpon>CRUDDiscountWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CRUDProductWindow.xaml.cs">
       <DependentUpon>CRUDProductWindow.xaml</DependentUpon>
     </Compile>
@@ -118,6 +121,15 @@
     </Compile>
     <Compile Include="CRUDWindow.xaml.cs">
       <DependentUpon>CRUDWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DiscountAddWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DiscountConnectWindow.xaml.cs">
+      <DependentUpon>DiscountConnectWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DiscountEditWindow.xaml.cs">
+      <DependentUpon>DiscountEditWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="DiscountWindow.xaml.cs">
       <DependentUpon>DiscountWindow.xaml</DependentUpon>
@@ -176,11 +188,15 @@
     <Compile Include="RecipeWindow.xaml.cs">
       <DependentUpon>RecipeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SectionEditWindow.xaml.cs">
+      <DependentUpon>SectionEditWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\BrandConnectViewModel.cs" />
     <Compile Include="ViewModel\BrandManageViewModel.cs" />
     <Compile Include="ViewModel\BrandsVM.cs" />
     <Compile Include="ViewModel\CouponManageViewModel.cs" />
     <Compile Include="ViewModel\CouponVM.cs" />
+    <Compile Include="ViewModel\DiscountManageViewModel.cs" />
     <Compile Include="ViewModel\ProductManageViewModel.cs" />
     <Compile Include="ViewModel\ProductsVM.cs" />
     <Compile Include="ViewModel\RecipePickerViewModel.cs" />
@@ -198,6 +214,10 @@
     <Compile Include="ProductWindow.xaml.cs">
       <DependentUpon>ProductWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="CRUDDiscountWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="CRUDProductWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -217,6 +237,18 @@
     <Page Include="CRUDWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DiscountAddWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DiscountConnectWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DiscountEditWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="DiscountWindow.xaml">
       <SubType>Designer</SubType>
@@ -259,6 +291,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RecipeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SectionEditWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

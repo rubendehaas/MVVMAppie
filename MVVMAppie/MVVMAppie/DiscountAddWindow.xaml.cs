@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,25 +16,18 @@ using System.Windows.Shapes;
 namespace MVVMAppie
 {
     /// <summary>
-    /// Interaction logic for CRUDSectionWindow.xaml
+    /// Interaction logic for DiscountAddWindow.xaml
     /// </summary>
-    public partial class CRUDSectionWindow : Window
+    public partial class DiscountAddWindow : Window
     {
-        public CRUDSectionWindow()
+        public DiscountAddWindow()
         {
             InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+		private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
-            SectionAddWindow sectionAddWindow = new SectionAddWindow();
-            sectionAddWindow.Show();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            SectionEditWindow edw = new SectionEditWindow();
-            edw.Show();
+            Regex regex = new Regex("^[.][0-9]+$|^[0-9]*[.]{0,1}[0-9]*$");
+            e.Handled = !regex.IsMatch((sender as TextBox).Text.Insert((sender as TextBox).SelectionStart, e.Text));
         }
     }
 }

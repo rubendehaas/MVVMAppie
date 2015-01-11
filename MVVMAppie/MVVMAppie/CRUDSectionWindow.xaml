@@ -6,7 +6,8 @@
     <Grid>
         <DataGrid ItemsSource="{Binding Sections.Sections}" SelectedItem="{Binding SelectedSection}" ColumnWidth="*" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="316" Width="301"/>
         <Button Content="Voeg Afdeling toe" HorizontalAlignment="Left" Margin="10,362,0,0" VerticalAlignment="Top" Width="110" Height="38" Click="Button_Click"/>
-        <Button Command="{Binding DeleteSectionCommand}" Content="Verwijder Afdeling" HorizontalAlignment="Left" Margin="202,362,0,0" VerticalAlignment="Top" Width="110" Height="38"/>
+        <Button Command="{Binding DeleteSectionCommand}" Content="Verwijder Afdeling" HorizontalAlignment="Left" Margin="215,362,0,0" VerticalAlignment="Top" Width="105" Height="38"/>
+        <Button Content="Pas aan" HorizontalAlignment="Left" Height="37" Margin="125,362,0,0" VerticalAlignment="Top" Width="85" Click="Button_Click_1"/>
 
     </Grid>
 </Window>
