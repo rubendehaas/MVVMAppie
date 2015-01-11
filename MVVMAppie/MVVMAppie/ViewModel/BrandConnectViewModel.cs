@@ -16,6 +16,14 @@ namespace MVVMAppie.ViewModel
         private SectionsVM _sectionsCollection;
         private ProductsVM _productsCollection;
         private BrandsVM _brandsCollection;
+        private SectionVM _selectedSection;
+        private ProductVM _selectedProduct;
+        private BrandVM _selectedUnselectedBrand;
+        private BrandVM _selectedSelectedBrand;
+        private RelayCommand addBrandCommand;
+        private RelayCommand removeBrandCommand;
+        private string _textIn;
+
         public SectionsVM SectionsCollection
         {
             get
@@ -85,18 +93,6 @@ namespace MVVMAppie.ViewModel
                 }
             }
         }
-
-        public ObservableCollection<BrandVM> Brands
-        {
-            get;
-            set;
-        }
-
-        private SectionVM _selectedSection;
-        private ProductVM _selectedProduct;
-        private BrandVM _selectedUnselectedBrand;
-        private BrandVM _selectedSelectedBrand;
-
         public SectionVM SelectedSection
         {
             get
@@ -155,8 +151,6 @@ namespace MVVMAppie.ViewModel
                 RaisePropertyChanged("SelectedSelectedBrand");
             }
         }
-        private RelayCommand addBrandCommand;
-        private RelayCommand removeBrandCommand;
 
         public RelayCommand AddBrandCommand
         {
@@ -187,9 +181,6 @@ namespace MVVMAppie.ViewModel
                 return removeBrandCommand;
             }
         }
-
-        private string _textIn;
-
         public String TextIn
         {
             get
@@ -209,7 +200,7 @@ namespace MVVMAppie.ViewModel
         {
             if (this.SelectedUnselectedBrand != null && this.SelectedProduct != null)
             {
-                this.BrandsCollection.BindProduct(this.SelectedUnselectedBrand.GetBrand(), this.SelectedProduct.GetProduct(), Convert.ToDouble(TextIn));
+                this.BrandsCollection.BindProduct(this.SelectedUnselectedBrand.GetBrand(), this.SelectedProduct.GetProduct(), Double.Parse(TextIn, System.Globalization.NumberStyles.AllowDecimalPoint, System.Globalization.NumberFormatInfo.InvariantInfo));
                 this.SelectedUnselectedBrand = null;
                 this.TextIn = "";
                 this.RaisePropertyChanged("SelectedBrands");

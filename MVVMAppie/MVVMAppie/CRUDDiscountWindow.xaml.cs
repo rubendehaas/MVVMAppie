@@ -15,37 +15,31 @@ using System.Windows.Shapes;
 namespace MVVMAppie
 {
     /// <summary>
-    /// Interaction logic for CRUD.xaml
+    /// Interaction logic for CrudDiscountWindow.xaml
     /// </summary>
-    public partial class CRUDWindow : Window
+    public partial class CrudDiscountWindow : Window
     {
-        public CRUDWindow()
+        public CrudDiscountWindow()
         {
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            CRUDSectionWindow crudSectionWindow = new CRUDSectionWindow();
-            crudSectionWindow.Show();
+            DiscountAddWindow daw = new DiscountAddWindow();
+            daw.Show();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            CRUDBrandWindow cbw = new CRUDBrandWindow();
-            cbw.Show();
+            DiscountEditWindow dew = new DiscountEditWindow();
+            dew.Show();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            CRUDProductWindow cpw = new CRUDProductWindow();
-            cpw.Show();
-        }
-
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            CrudDiscountWindow cdw = new CrudDiscountWindow();
-            cdw.Show();
+            DiscountConnectWindow dcw = new DiscountConnectWindow();
+            dcw.Show();
         }
     }
 }

@@ -14,8 +14,8 @@ namespace MVVMAppie.ViewModel
         private Database datab;
         private BrandsVM _brands;
         private BrandVM _selectedBrand;
-
         private string _textIn;
+        private string _textEdit;
 
         public BrandsVM Brands
         {
@@ -40,6 +40,20 @@ namespace MVVMAppie.ViewModel
             }
         }
 
+        public String TextEdit
+        {
+            get
+            {
+                return _textEdit;
+            }
+
+            set
+            {
+                _textEdit = value;
+                RaisePropertyChanged("TextEdit");
+            }
+        }
+
         public BrandVM SelectedBrand
         {
             get
@@ -50,6 +64,13 @@ namespace MVVMAppie.ViewModel
             set
             {
                 _selectedBrand = value;
+                if (_selectedBrand != null) {
+                    TextEdit = _selectedBrand.Name;
+                }
+                else {
+                    TextEdit = "";
+                }
+                
                 RaisePropertyChanged("SelectedBrand");
             }
         }
@@ -71,12 +92,23 @@ namespace MVVMAppie.ViewModel
             }
         }
 
+        private void Edit()
+        {
+            if (_selectedBrand != null)
+            {
+                _brands.EditBrand(TextEdit, _selectedBrand.GetBrand());
+                RaisePropertyChanged("Brands");
+            }
+        }
+
+
         public BrandManageViewModel(Database datab, BrandsVM Brands)
         {
             this.datab = datab;
             this._brands = Brands;
             this.DeleteBrandCommand = new RelayCommand(Delete);
             this.AddBrandCommand = new RelayCommand(Add);
+            this.EditBrandCommand = new RelayCommand(Edit);
         }
     }
 }

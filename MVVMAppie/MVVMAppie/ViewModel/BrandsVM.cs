@@ -58,6 +58,7 @@ namespace MVVMAppie.ViewModel
 
         public void UnbindProduct(Brand brand, Product product)
         {
+            this.database.BrandProductRepository.Delete(database.BrandProductRepository.GetAll().Where(b => b.Brand.Equals(brand) && b.Product.Equals(product)).First());
             product.Brands.Remove(brand);
             this.database.ProductRepository.Update(product);
             this.database.Save();
@@ -90,6 +91,16 @@ namespace MVVMAppie.ViewModel
             RaisePropertyChanged("Brands");
         }
 
-        
+
+
+        public void EditBrand(string TextEdit, Brand brand)
+        {
+            brand.Name = TextEdit;
+
+            this.database.BrandRepository.Update(brand);
+            this.database.Save();
+
+            this._brands = this.database.BrandRepository.GetAll().ToList();
+        }
     }
 }

@@ -57,6 +57,7 @@ namespace MVVMAppie.ViewModel
             SimpleIoc.Default.Register<ProductManageViewModel>();
             SimpleIoc.Default.Register<BrandManageViewModel>();
             SimpleIoc.Default.Register<BrandConnectViewModel>();
+            SimpleIoc.Default.Register<DiscountManageViewModel>();
         }
 
         public MainViewModel Main
@@ -121,6 +122,14 @@ namespace MVVMAppie.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<BrandConnectViewModel>();
+            }
+        }
+
+        public DiscountManageViewModel DiscountManager
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<DiscountManageViewModel>();
             }
         }
         

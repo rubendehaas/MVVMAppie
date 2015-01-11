@@ -21,6 +21,7 @@ namespace MVVMAppie.ViewModel
         
         //Variabele die de textbox text bijhoud
         private string _textIn;
+        private string _textEdit;
 
         //Property om de sections op te vragen
         public SectionsVM Sections
@@ -38,13 +39,26 @@ namespace MVVMAppie.ViewModel
             get
             {
                 return _textIn;
-                ;
             }
 
             set
             {
                 _textIn = value;
                 RaisePropertyChanged("TextIn");
+            }
+        }
+
+        public String TextEdit
+        {
+            get
+            {
+                return _textEdit;
+            }
+
+            set
+            {
+                _textEdit = value;
+                RaisePropertyChanged("TextEdit");
             }
         }
 
@@ -58,6 +72,14 @@ namespace MVVMAppie.ViewModel
             set
             {
                 _selectedSection = value;
+                if (_selectedSection != null)
+                {
+                    TextEdit = _selectedSection.Name;
+                }
+                else
+                {
+                    TextEdit = "";
+                }
                 RaisePropertyChanged("SelectedSection");
             }
         }
@@ -65,12 +87,23 @@ namespace MVVMAppie.ViewModel
         //variabele die de add knop afhandeld
         public RelayCommand AddSectionCommand { get; set; }
         public RelayCommand DeleteSectionCommand { get; set; }
+        public RelayCommand EditSectionCommand { get; set; }
 
         private void Add()
         {
             //zegt tegen het sections viewmodel dat er een section moet worden aangemaakt.
             _sections.AddSectionCommand(TextIn);
             TextIn = "";
+        }
+
+        private void Edit()
+        {
+            //zegt tegen het sections viewmodel dat er een section moet worden aangepast.
+            if (_selectedSection != null)
+            {
+                _sections.EditSectionCommand(_selectedSection.GetSection(),TextEdit);
+            }
+            
         }
 
         private void Delete()
@@ -87,6 +120,7 @@ namespace MVVMAppie.ViewModel
             this._sections = Sections;
             this.DeleteSectionCommand = new RelayCommand(Delete);
             this.AddSectionCommand = new RelayCommand(Add);
+            this.EditSectionCommand = new RelayCommand(Edit);
         }
     }
 }
